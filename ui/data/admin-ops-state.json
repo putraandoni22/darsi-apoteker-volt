@@ -1,0 +1,21 @@
+{
+  "dataSource": {
+    "lastSyncAt": "2026-04-11T10:47:51.954Z",
+    "lastSchemaValidationAt": "2026-04-11T10:48:00.872Z",
+    "lastStatusRefreshAt": "2026-04-11T10:48:00.872Z",
+    "note": "Validasi skema berhasil tanpa error."
+  },
+  "vector": {
+    "scheduleEnabled": true,
+    "scheduleTime": "01:30",
+    "lastIndexedAt": "2026-04-11T10:48:21.476Z",
+    "lastIndexedCount": 0,
+    "pendingCount": 0
+  },
+  "system": {
+    "maintenanceMode": false,
+    "lastBackupAt": "2026-04-13T07:48:21.955Z",
+    "lastRestoreAt": "2026-04-11T10:46:35.130Z",
+    "lastRestartAt": null
+  }
+}

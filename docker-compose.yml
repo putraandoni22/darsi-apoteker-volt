@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15
+    container_name: darsi_pharmacy
+    environment:
+      POSTGRES_DB: apoteker_db
+      POSTGRES_USER: andon
+      POSTGRES_PASSWORD: andon
+    ports:
+      - "5450:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: unless-stopped
+
+volumes:  
+  postgres_data:

@@ -1,0 +1,31 @@
+[
+  {
+    "id": "TC-001",
+    "query": "cari amlodipine",
+    "expectContainsAny": ["### Rincian Utama", "### Catatan Klinis"],
+    "expectSource": "internal",
+    "expectReject": false
+  },
+  {
+    "id": "TC-002",
+    "query": "berikan aku obat untuk diabetes",
+    "expectContainsAny": ["### Rincian Utama", "Perlu Verifikasi Klinis"],
+    "expectSource": "internal",
+    "expectReject": false
+  },
+  {
+    "id": "TC-003",
+    "query": "cara masak mie goreng",
+    "expectContainsAny": ["mie goreng", "Sumber: Pengetahuan umum model"],
+    "expectNotContainsAny": ["hanya melayani pertanyaan seputar apoteker"],
+    "expectSource": "general",
+    "expectReject": false
+  },
+  {
+    "id": "TC-004",
+    "query": "dosis aman obat untuk bayi",
+    "expectContainsAny": ["### Catatan Klinis", "konsultasi"],
+    "expectSource": "general",
+    "expectReject": false
+  }
+]

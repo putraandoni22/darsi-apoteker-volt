@@ -1,0 +1,54 @@
+{
+  "total": 4,
+  "passed": 4,
+  "failed": 0,
+  "timestamp": "2026-04-06T06:29:16.414Z",
+  "apiUrl": "http://localhost:4300/api/chat",
+  "results": [
+    {
+      "id": "TC-001",
+      "query": "cari amlodipine",
+      "passed": true,
+      "responseText": "### Rincian Utama\n- **Label penting:** Amlodipin adalah obat antihipertensi sistemik (Anatomi Terapu: Obat Kardiovaskular, Kelas Terapi: Antihipertensi Sistemik). Tersedia sebagai tablet 5 mg dan 10 mg.\n\n### Catatan Klinis\n- Peresepan maksimal adalah 30 tablet/bulan. Sediakan bukti perscribing jika ingin mengubah peresepan.\n- Konsultasi sekedar dengan dokter atau apoteker apabila memerlukan pertanyaan lebih spesifik atau mungkin ada interaksi obat dengan yang lain. [Sumber: Data Obat Kronis RSI & e-Fornas]\n\nApakah ada obat lain dari resep dokter yang ingin Anda cek statusnya?",
+      "checks": [
+        "contains-check:PASS",
+        "source-check:PASS",
+        "reject-check:PASS"
+      ]
+    },
+    {
+      "id": "TC-002",
+      "query": "berikan aku obat untuk diabetes",
+      "passed": true,
+      "responseText": "### Rincian Utama\n- **Insulin Basal (Lantus, Levemir, SanSuline Long) atau Insulin Campuran (Ryzodeg, Humalog Mix, Novomix)**\n  - Apakah obat yang bisa Anda dapatkan untuk diabetes.\n  - Tidak terlihat penyaranan peresepan maksimal dalam data internal. Konsultasikan dengan dokter/apoteker agar tahu jumlah obat yang diperlukan.\n\n### Catatan Klinis\n- Obat ini hanya untuk penggunaan pasien dengan diabetes melitus tipe 2 yang sudah diberikan kombinasi metformin dosis optimal dan obat diabetes oral lainnya namun kadar glukosa darahnya belum terkendali (HbA1C > 7,5% atau gula darah rerata > 169 mg/dL). Atau pasien dengan kadar HbA1C nya > 9% disertai dengan gejala-gejala dekompensasi metabolik.\n  - Kekurangan gula darah harus dikurangi sebelum obat ini diberikan.\n  - Diperhatikan dalam penggunaan obat ini juga adalah keberadaan gejala-gejala dekompensasi metabolik seperti poliuria (kadar kotor karena mengeluarkan air dengan efek buang air kencing terus ke belakang), polydipsia (tiram gula dengan rasa kercas), dan polyfagia (makanan ketidakseimbangan). [Sumber: Data Obat Kronis RSI & e-Fornas]\n\nApakah ada obat lain dari resep dokter yang ingin Anda cek statusnya?",
+      "checks": [
+        "contains-check:PASS",
+        "source-check:PASS",
+        "reject-check:PASS"
+      ]
+    },
+    {
+      "id": "TC-003",
+      "query": "cara masak mie goreng",
+      "passed": true,
+      "responseText": "Mie goreng adalah makanan yang populer dari Indonesia, yang biasanya disajikan di restoran atau kamu bisa juga membuatnya dirumah. Berikut adalah cara membuat mie goreng sederhana:\n\n1. Cuci dan rebus mie sekitar 5 menit, tiriskan dan sisihkan.\n2. Siapkan minyak goreng secukupnya dalam wajan, panaskan api sedang. Masukkan bawang putih yang dihaluskan, daun bawang iris, bawang merah iris, dan kol iris. Tumis sehingga wortel setengah matang, lalu masukkan udang atau telur. Tumis hingga setengah matang.\n3. Tambahkan mie ke wajan, aduk rata bersama tumisan. Tambahkan kecap, garam, dan kaldu bubuk, campur hingga rata.\n4. Tambahkan kecap manis, kecap asin, sisa minyak wortel, dan sedikit air. Aduk rata hingga mie tercampur merata dan irisan-irisan masukan ditumbuk. Masak hingga mie mengeluarkan aroma enak.\n5. Tambahkan keju atau saus oles sesuai selera, siram secara merata diatas mie goreng. Taburi kemudian dengan daun bawang iris, seledri, dan bawang goreng. Mie goreng siap dinikmati.\n\nAda lagi yang bisa saya bantu terkait layanan farmasi RSI hari ini?\n\n[Sumber: Pengetahuan umum model (tanpa data internal RSI/e-Fornas)]",
+      "checks": [
+        "contains-check:PASS",
+        "not-contains-check:PASS",
+        "source-check:PASS",
+        "reject-check:PASS"
+      ]
+    },
+    {
+      "id": "TC-004",
+      "query": "dosis aman obat untuk bayi",
+      "passed": true,
+      "responseText": "### Rincian Utama\n- **Label:** Dosis aman untuk bayi\n- Obat yang sesuai dengan kategori \"dosis aman bayi\" tidak ditemukan dalam database yang ada.\n\n### Rincian Lanjutan\n- **Label:** Perhatian Khusus\n  - Bayi tidak seharusnya diberi obat tanpa rekomendasi dokter, karena setiap obat bisa meregang kebocoran dan dampak terhadap kecil-kecilan.\n\n### Catatan Klinis\n- Perlu diingat, keamanan obat sebaiknya dipastikan dalam proses pengembangan, pemproduksian, serta pengolahan.\n\n[Sumber: Pengetahuan umum model (tanpa data internal RSI/e-Fornas)]\n\nTeruslah berkonsultasi ke dokter/apoteker sebelum memakai sesuatu obat.\n\nApakah Anda perlu saya bantu cek informasi obat untuk kelompok usia tertentu?",
+      "checks": [
+        "contains-check:PASS",
+        "source-check:PASS",
+        "reject-check:PASS"
+      ]
+    }
+  ]
+}

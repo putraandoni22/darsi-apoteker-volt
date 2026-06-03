@@ -1,0 +1,54 @@
+{
+  "total": 4,
+  "passed": 3,
+  "failed": 1,
+  "timestamp": "2026-04-06T06:28:32.281Z",
+  "apiUrl": "http://localhost:4300/api/chat",
+  "results": [
+    {
+      "id": "TC-001",
+      "query": "cari amlodipine",
+      "passed": true,
+      "responseText": "### Rincian Utama\n- **Nama obat:** Amlodipine\n  - **Sediaan tersedia:** Tablet 10 mg, Tablet 5 mg\n  - **Kelas terapi:** Obat kardiovaskular > Antihipertenisi > Antihipertensi sistemik\n  - **Ketersediaan faskes:** FKTP, FKTL, PRB, OEN\n  - **Peresepan maksimal:** 30 tablets/bulan\n\n### Catatan Klinis\n- Perhatikan peraturan pemakai obat maupun konsultasi dokter apoteker.\n- Pastikan mengikuti peresepan dari dokter dan tidak melakukan self-medikasi.\n[Sumber: Data Obat Kronis RSI & e-Fornas]\n\nApakah ada obat lain dari resep dokter yang ingin Anda cek statusnya?",
+      "checks": [
+        "contains-check:PASS",
+        "source-check:PASS",
+        "reject-check:PASS"
+      ]
+    },
+    {
+      "id": "TC-002",
+      "query": "berikan aku obat untuk diabetes",
+      "passed": true,
+      "responseText": "### Rincian Utama\n- **Obat untuk diabetes**: Insulin Basal atau Insulin Campuran, Metformin, Simvastatin.\n  - **Pemberian** tergantung keadaan pasien, tahap kadar gula darah, dan kondisi klinisnya.\n\n### Catatan Klinis\n- Jangan lupa konsultasi dokter/apoteker sebelum memulai penggunaan obat.\n- Berikut detail obat yang tercantum di Data Obat Kronis RSI & e-Fornas:\n\n#### Insulin Basal (Lantus, Levemir, Sansuline Long)\n- Dosis: belum tersedia pada data internal.\n- Jenis obat: Hormon/Obat Endokrin Lain/Kontrasepsi > Antidiabetes > Antidiabetes Injectible\n- Sediaan tersedia: Injectible\n\n#### Insulin Campuran (Ryzodeg, Humalog Mix, Novomix)\n- Dosis: belum tersedia pada data internal.\n- Jenis obat: Hormon/Obat Endokrin Lain/Kontrasepsi > Antidiabetes > Antidiabetes Injectible\n- Sediaan tersedia: Injectible\n\n#### Metformin\n- Dosis: Tabel 30 mg, 500 mg, 850 mg.\n- Jenis obat: Hormon/Obat Endokrin Lain/Kontrasepsi > Antidiabetes > Antidiabetes Oral\n- Sediaan tersedia: Tablet\n- Peresepan maksimal: 90 tab/bulan (e-Fornas)\n\n#### Simvastatin 10mg, 20mg\n- Dosis: 10 mg dan 20 mg.\n- Jenis obat: Farmakol/Lipid/Cholesterol > Lipid-lowering > Statin\n- Sediaan tersedia: Tablet\n- Peresepan maksimal: 120 tab/bulan (e-Fornas)\n\nApakah ada obat lain dari resep dokter yang ingin Anda cek statusnya?\n\n[Sumber: Data Obat Kronis RSI & e-Fornas]",
+      "checks": [
+        "contains-check:PASS",
+        "source-check:PASS",
+        "reject-check:PASS"
+      ]
+    },
+    {
+      "id": "TC-003",
+      "query": "cara masak mie goreng",
+      "passed": false,
+      "responseText": "Mie goreng adalah masakan yang mudah dibuat dan digemari oleh banyak orang. Di sini adalah langkah cara memasak mie goreng yang mudah diikuti:\n\n1. Siapkan bahan baku, seperti mie, wortel, kol, bawang putih, daun bawang, saus tiram, kecap, garam, dan minyak goreng.\n2. rebus mie hingga empuk, kemudian tiriskan.\n3. panaskan minyak goreng dalam wajan, tambahkan bawang putih yang dihaluskan dan tumis hingga harum.\n4. Tambahkan wortel dan kol yang sudah dicuci bersih, rebus sebentar hingga terasa empuk.\n5. Tambahkan mie ke dalam wajan, tuang kecap, saus tiram, garam, dan aduk rata hingga mie tercampur dengan semua bahan.\n6. Tambahkan daun bawang kemudian aduk rata.\n7. Angkat mie goreng dan sajikan. Selamat makan!\n\nAda lagi yang bisa saya bantu terkait layanan farmasi RSI hari ini?\n\n[Sumber: Pengetahuan umum model (tanpa data internal RSI/e-Fornas)]",
+      "checks": [
+        "contains-check:FAIL",
+        "not-contains-check:PASS",
+        "source-check:PASS",
+        "reject-check:PASS"
+      ]
+    },
+    {
+      "id": "TC-004",
+      "query": "dosis aman obat untuk bayi",
+      "passed": true,
+      "responseText": "### Rincian Utama\n- **Label:** Dosis aman obat untuk bayi\n- **Deskripsi**: Tidak ada informasi obat yang disertakan dalam perkiraan dosis aman bagi bayi di database RSI atau e-Fornas.\n\n### Catatan Klinis\n- Perhatikan bahwa setiap obat memiliki dosis yang berbeza sesuai umur, berat badan, dan kondisi kesihatan.\n- Jangan merancang dosis sendiri untuk bayi, konsultasikan dengan dokter atau apoteker.\n\n[Sumber: Pengetahuan umum model (tanpa data internal RSI/e-Fornas)]\n\nDengan senang hati, segera konsultasi dengan dokter atau apoteker demi langkah yang tepat dan aman.\n\nApakah Anda perlu saya bantu cek informasi obat untuk kelompok usia tertentu?",
+      "checks": [
+        "contains-check:PASS",
+        "source-check:PASS",
+        "reject-check:PASS"
+      ]
+    }
+  ]
+}

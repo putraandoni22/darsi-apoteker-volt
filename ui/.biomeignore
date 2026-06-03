@@ -1,0 +1,12 @@
+# Generated and dependency folders
+.next
+out
+build
+coverage
+node_modules
+
+# Tool caches
+.turbo
+
+# TypeScript incremental cache
+*.tsbuildinfo

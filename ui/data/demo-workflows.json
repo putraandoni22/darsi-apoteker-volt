@@ -1,0 +1,128 @@
+{
+  "stockItems": [
+    {
+      "id": "stk-001",
+      "nama": "Paracetamol 500mg",
+      "stok": 120,
+      "satuan": "tablet",
+      "expiredAt": "2027-08-20",
+      "lokasi": "Rak A-02",
+      "status": "aman"
+    },
+    {
+      "id": "stk-002",
+      "nama": "Amoxicillin 500mg",
+      "stok": 14,
+      "satuan": "kapsul",
+      "expiredAt": "2026-11-10",
+      "lokasi": "Rak B-01",
+      "status": "menipis"
+    },
+    {
+      "id": "stk-003",
+      "nama": "Amlodipine 10mg",
+      "stok": 64,
+      "satuan": "tablet",
+      "expiredAt": "2028-01-12",
+      "lokasi": "Rak C-03",
+      "status": "aman"
+    },
+    {
+      "id": "stk-004",
+      "nama": "Metformin 500mg",
+      "stok": 5,
+      "satuan": "tablet",
+      "expiredAt": "2026-09-01",
+      "lokasi": "Rak C-05",
+      "status": "kritis"
+    }
+  ],
+  "dispensingOrders": [
+    {
+      "id": "dsp-001",
+      "patientName": "Budi Santoso",
+      "medicineName": "Paracetamol 500mg",
+      "dosage": "3x1 sesudah makan",
+      "quantity": 15,
+      "status": "siap_diserahkan",
+      "createdAt": "2026-04-07T08:45:00.000Z"
+    },
+    {
+      "id": "dsp-002",
+      "patientName": "Siti Aminah",
+      "medicineName": "Amlodipine 10mg",
+      "dosage": "1x1 pagi",
+      "quantity": 30,
+      "status": "diracik",
+      "createdAt": "2026-04-07T09:10:00.000Z"
+    },
+    {
+      "id": "dsp-647b8b52",
+      "patientName": "Putra Andoni",
+      "medicineName": "Amoxicillin",
+      "dosage": "3x1",
+      "quantity": 10,
+      "status": "diterima",
+      "createdAt": "2026-04-07T05:16:22.993Z"
+    },
+    {
+      "id": "dsp-da4109d0",
+      "patientName": "Putra Andoni",
+      "medicineName": "Amoxicillin",
+      "dosage": "3x1 sesudah makan",
+      "quantity": 4,
+      "status": "diterima",
+      "createdAt": "2026-04-09T07:54:36.439Z"
+    },
+    {
+      "id": "dsp-ed34a864",
+      "patientName": "Putra Andoni",
+      "medicineName": "Mefinal 500mg",
+      "dosage": "1x1 Ketika Nyeri",
+      "quantity": 5,
+      "status": "diterima",
+      "createdAt": "2026-04-09T07:55:24.524Z"
+    },
+    {
+      "id": "dsp-88e49889",
+      "patientName": "Putra Andoni",
+      "medicineName": "Amoxicillin",
+      "dosage": "3x1",
+      "quantity": 10,
+      "status": "diterima",
+      "createdAt": "2026-04-09T09:24:10.692Z"
+    }
+  ],
+  "reminders": [
+    {
+      "id": "rem-9e290309",
+      "userId": "9df3e4fd-1d85-4dee-86d8-bc65b9244616",
+      "title": "Kontrol Rutin",
+      "date": "2026-04-08",
+      "time": "08:00",
+      "channel": "email",
+      "note": "",
+      "createdAt": "2026-04-07T05:18:55.226Z"
+    },
+    {
+      "id": "rem-6338ee2e",
+      "userId": "9df3e4fd-1d85-4dee-86d8-bc65b9244616",
+      "title": "Periksa Gigi",
+      "date": "2026-04-07",
+      "time": "08:00",
+      "channel": "aplikasi",
+      "note": "Gigi Berlubang",
+      "createdAt": "2026-04-07T08:01:19.386Z"
+    },
+    {
+      "id": "rem-8ce7da42",
+      "userId": "9df3e4fd-1d85-4dee-86d8-bc65b9244616",
+      "title": "kontrol rutin",
+      "date": "2026-04-09",
+      "time": "15:37",
+      "channel": "aplikasi",
+      "note": "periksa gigi",
+      "createdAt": "2026-04-09T08:36:08.906Z"
+    }
+  ]
+}

@@ -1,0 +1,139 @@
+﻿DAFTAR RESTRIKSI OBAT KRONIS BPJS DI RSI SURABAYA;;;;
+;;;;
+NO.;NAMA OBAT;RESTRIKSI/JENIS OBAT;PERESEPAN MAKSIMAL;SMF
+1;ALLOPURINOL 100MG*;Tidak diberikan pada saat nyeri akut;30 TAB/BULAN;"P. DALAM; SYARAF; JANTUNG; "
+;ALLOPURINOL 300MG;;60 TAB/BULAN;
+2;FEBUKSOSTAT 40MG;Untuk artritis gout dengan alergi alopurinol, diresepkan Sp.PD;60 TAB/BULAN;P. DALAM
+3;AMITRIPTILIN 25MG;-;30 TAB/BULAN;"P. DALAM; SYARAF"
+4;GABAPENTIN 100MG;Hanya untuk neuralgia pascaherpes atau nyeri neuropati diabetik.;90 CAP/ BULAN;"P. DALAM; SYARAF"
+;GABAPENTIN 300MG;;;
+;;tidak bisa diberikan bersama pregabalin;;
+5;CARBAMAZEPIN 200MG*;Hanya untuk neuralgia trigeminal.;120 TAB/BULAN;SYARAF
+6;PREGABALIN 75MG;Hanya untuk neuralgia pascaherpes atau nyeri neuropati diabetik.;120 cap/ bulan;"P. DALAM; SYARAF"
+;;tidak bisa diberikan bersama gabapentin;;
+7;LORATADIN 10MG;URTIKARIA KRONIK;30 TAB/BULAN;
+8;CETIRIZIN 10MG;URTIKARIA KRONIK;30 TAB/BULAN;
+9;PHENYTOIN 100MG*;ANTI EPILEPSI;120 cap/ bulan;
+10;PHENOBARBITAL 30MG*;ANTI EPILEPSI;120 TAB/ BULAN;
+11;LEVETIRACETAM 500MG;Sebagai terapi tambahan pada pasien epilepsi onset parsial.;90 TAB/BULAN;
+;;Boleh terapi tunggal epilepsi untuk Ibu Hamil;;
+12;TOPIRAMAT 25MG;Hanya untuk adjunctive terapi pada epilepsi parsial refraktur, bukan untuk monoterapi.;90 TAB/BULAN;SYARAF
+13;VALPROAT ER 250*;Dapat digunakan untuk epilepsi umum (general epilepsy).;120 TAB/BULAN;
+;VALPROAT ER 500*;;60 TAB/BULAN;
+;VALPROAT BUKAN ER 250*;;90 TAB/BULAN;
+14;LEVOPAR TABLET;Diresepkan oleh dokter yang memiliki kompetensi di bidang ilmu neurologi.;120 TAB/ BULAN;SYARAF
+;LEPARSON DISPERS TAB;;;
+15;STALEVO;Diresepkan oleh dokter yang memiliki kompetensi di bidang ilmu neurologi.;90 TAB/BULAN;SYARAF
+16;PRAMIFROL 0,375MG;Hanya dpt diresepkan oleh Neurologi;30 TAB/BULAN;SYARAF
+17;REQUIB 2MG;Hanya dpt diresepkan oleh Neurologi;30 TAB/BULAN;SYARAF
+18;TRIHEXYPENIDIL 2MG*;TERAPI JIWA DAN SYARAF;90 TAB/BULAN;"SYARAF; JIWA"
+19;ASAM FOLAT 1MG;-;90 TAB/BULAN;ALL POLI
+20;AZATHIOPRIN 50MG (IMURAN);IMUNOSUPRESAN;90TAB/BULAN;P.DALAM,IMUNOLOGI
+21;HIDROKSIKLOROKUIN 200mg;a) Untuk kasus SLE (Systemic Lupus Erythematosus). atau b) Untuk kasus RA (Rheumatoid Arthritis).;60 TAB/BULAN;P.DALAM
+22;METOTREKSAT 2,5MG;a) Untuk imunosupresi. ATAU b) Untuk pasien dengan luas psoriasis di atas 10%.;;
+23;VITAMIN B12;-;30 TAB/BULAN;ALL POLI
+24;WARFARIN 2MG;"Untuk pencegahan dan/atau terapinthromboembolism, Dosis harian tergantung target INR (2-3); Pada pasien dalam kondisi stabil 
+(tidak ada perdarahan), dengan tercapainya target INR (2-3), diperlukan evaluasi INR rutin maksimal setiap 3 bulan.  ";90 TAB/BULAN;JANTUNG
+25;FUROSEMID 40MG;-;120 TAB/BULAN;"P. DALAM; JANTUNG"
+26;HCT 25MG;-;30 TAB/BULAN;"P. DALAM; JANTUNG"
+27;SPIRONOLACTON 25MG*;-;30 TAB/BULAN;JANTUNG
+;SPIRONOLACTON 100MG;-;;
+28;DUTASTERID;-;30 TAB/BULAN;UROLOGI
+29;MINIRIN 0,1MG;-;30 TAB/BULAN;UROLOGI
+30;HARNAL 0,2;-;30 TAB/BULAN;UROLOGI
+31;TAMSULOSIN 0,4;-;30 TAB/BULAN;UROLOGI
+32;ACARBOSE 50 MG DAN 100MG*;-;90 TAB/BULAN;P.DALAM
+33;GLIBENCLAMID 5MG*;-;90 TAB/BULAN;P.DALAM
+34;GLICLAZID MR 60MG*;-;30 TAB/BULAN;P.DALAM
+35;GLICLAZID 80MG*;-;60 TAB/BULAN;P.DALAM
+36;GLIQUIDON 30MG*;-;90 TAB/BULAN;P.DALAM
+37;GLIMEPIRID 1MG, 2MG, 3MG*;-;60 TAB/BULAN;P.DALAM
+38;GLIMEPIRID 4MG*;-;30 TAB/BULAN;P.DALAM
+39;METFORMIN 500MG*;-;120 TAB/BULAN;P.DALAM
+40;METFORMIN 850MG*;-;60 TAB/BULAN;P.DALAM
+41;PIOGLITAZON 15MG, 30MG;Tidak diberikan pada pasien dengan gagal jantung dan/atau riwayat keluarga bladder cancer;30 TAB/BULAN;P. DALAM
+42;SITAGLIPTIN 100MG*;Bukan lini pertama dan obat tunggal b) terapi tambahan pada metformin dan/atau sulfonilurea dengan dosis optimal;30 TAB/BULAN;P. DALAM
+43;VILDAGLIPTIN 50MG*;a) Tidak digunakan sebagai lini pertama/terapi inisial b) Sbg terapi tambahan pd metformin dgn dosis optimal toleransi c) Tdk sbg obat tunggal.;60 TAB/BULAN;P. DALAM
+44;INSULIN BASAL (LANTUS, LEVEMIR, SANSULIN LONG);Pasien diabetes melitus tipe 2 yang sudah diberikan kombinasi metformin dosis optimal dan obat diabetes oral lainnya namun kadar glukosa darahnya belum terkendali (HbA1C > 7,5% atau gula darah rerata > 169 mg/dL).;-;P. DALAM
+;;ATAU Pasien diabetes melitus tipe 2  dengan kadar HbA1C nya > 9%  disertai dengan gejala-gejala  dekompensasi metabolik. ;;
+45;INSULIN PRANDIAL* (NOVORAPID, APIDRA, SANSULIN RAPID);-;-;P. DALAM
+46;INSULIN  CAMPURAN* (RYZODEG, HUMALOG MIX, NOVOMIX);Pasien diabetes melitus tipe 2 yang sudah diberikan kombinasi metformin dosis optimal dan obat diabetes oral lainnya namun kadar glukosa darahnya belum terkendali (HbA1C > 7,5% atau gula darah rerata > 169 mg/dL).;-;P. DALAM
+;;ATAU Pasien diabetes melitus tipe 2  dengan kadar HbA1C nya > 9%  disertai dengan gejala-gejala  dekompensasi metabolik. ;;
+47;LEVOTIROKSIN 100MCG;-;60 TAB/BULAN;P. DALAM
+48;PROPILTIOURASIL 100MG;-;BULAN PERTAMA maks 180 tab/bulan;P. DALAM
+49;THIAMAZOL 5MG;-;120 TAB/ BULAN;P. DALAM
+50;THIAMAZOL 10MG;-;BULAN PERTAMA maks 90 tab/bulan;P. DALAM
+51;AMLODIPIN 5MG, 10MG*;-;30 TAB/BULAN;"P. DALAM; SYARAF; JANTUNG; "
+52;DILTIAZEM 30MG*;-;90 TAB/BULAN;JANTUNG
+53;NITROKAF 2,5MG*;-;90 KAP/BULAN;JANTUNG
+54;ISDN 5MG, 10MG*;-;90 TAB/BULAN;JANTUNG
+55;DIGOXIN 0,25MG*;-;30 TAB/BULAN;JANTUNG
+56;PROPRANOLOL 10MG;Untuk kasus-kasus dengan gangguan tiroid.;90 TAB/BULAN;"P. DALAM; JANTUNG"
+57;"BISOPROLOL 2,5MG; 5MG*";-;30 TAB/BULAN;"P. DALAM; JANTUNG"
+58;MIKOFENOLAT SODIUM 360MG;;120TAB/BULAN;
+59;HERBESSER 100MG, 200MG*;-;30 TAB/BULAN;"P. DALAM; JANTUNG; SYARAF"
+60;TANAPRES 5MG, 10MG*;-;30 TAB/BULAN;"P. DALAM; JANTUNG; SYARAF"
+61;IRBESARTAN 150MG, 300MG*;Utk pasien yg telah mendpt ACE inhibitor sebelumnya sekurang-kurangnya 1 bulan dan mengalami intoleransi terhadap ACE inhibitor yg dibuktikan dgn melampirkan resep sebelumnya;30 TAB/BULAN;"P. DALAM; JANTUNG; SYARAF"
+62;CANDESARTAN 8MG, 16MG*;Utk pasien yg telah mendpt ACE inhibitor sebelumnya sekurang-kurangnya 1 bulan dan mengalami intoleransi terhadap ACE inhibitor yg dibuktikan dgn melampirkan resep sebelumnya;30 TAB/BULAN;"P. DALAM; JANTUNG; SYARAF"
+63;CAPTOPRIL TAB*;-;90 TAB/BULAN;"P. DALAM; JANTUNG; SYARAF"
+64;LISINOPRIL 5MG, 10MG*;-;30 TAB/BULAN;"P. DALAM; JANTUNG; SYARAF"
+65;DOPAMET 250MG*;hanya untuk hipertensi pada wanita hamil;90 TAB/BULAN;"P. DALAM; JANTUNG"
+66;NIFEDIPIN 10MG*;-;90 TAB/BULAN;"P. DALAM; JANTUNG; SYARAF"
+67;ADALAT OROS 30MG*;-;30 TAB/BULAN;"P. DALAM; JANTUNG; SYARAF"
+68;BIOPREXUM 5MG*;-;60 TAB/BULAN;"P. DALAM; JANTUNG"
+69;RAMIPRIL 5MG, 10MG*;-;30 TAB/BULAN;"P. DALAM; JANTUNG; SYARAF"
+70;TELMISARTAN 40MG, 80MG*;Digunakan untuk hipertensi dengan nilai eGFR < 30 mL/menit/1,73 m2.;30 TAB/BULAN;"P. DALAM; JANTUNG; SYARAF"
+71;VALSARTAN 80MG, 160MG*;Utk pasien yg telah mendpt ACE inhibitor sebelumnya sekurang-kurangnya 1 bulan dan mengalami intoleransi terhadap ACE inhibitor yg dibuktikan dgn melampirkan resep sebelumnya;30 TAB/BULAN;"P. DALAM; JANTUNG; SYARAF"
+72;ISOPTIN(VERAPAMIL) SR 240*;-;30 TAB/BULAN;JANTUNG
+73;BERAPROST 20MCG;ANTIHIPERTENSI PULMONAL;90 TAB/BULAN;JANTUNG
+74;SILDENAFIL 20MG;a) Digunakan untuk  Hipertensi Arteri Pulmonal (HAP) pada pasien dewasa. Diagnosis ditegakkan dengan echocardiography. Atau b) Diresepkan oleh dokter yang memiliki kompetensi di bidang ilmu penyakit jantung atau bedah jantung ;90 TAB/BULAN;JANTUNG. BEDAH JANTUNG
+75;ASAM SALISILAT;-;30 TAB/BULAN;"P. DALAM; JANTUNG; SYARAF"
+76;CLOPIDOGREL 75MG*;Pasien yang menderita recent myocardial infarction, ischaemic stroke atau established Peripheral Arterial Disease (PAD).;Diberikan 1 x 75 mg maks selama 12 bulan.;"P. DALAM; JANTUNG; SYARAF"
+;;Pasien yang menderita sindrom koroner akut: NON STEMI (unstable angina) dan STEMI.;;
+;;Lazimnya klopidogrel diberikan bersama dengan antiplatelet aspirin atau antiplatelet lainnya dosis rendah;;
+;;Hati-hati interaksi obat pada pasien yang menggunakan obat obat golongan Proton Pump Inhibitor (PPI).;;
+77;PLETAAL (CILOSTAZOL) SR 100MG*;Secondary prevention pada pasien stroke dengan Cerebral Small Vessel Disease (CSVD);60 CAP/ BULAN;"P. DALAM; JANTUNG; SYARAF"
+;;Hanya dapat diresepkan oleh SpPD atau SpJP atau SpBV atau SpB-TKV atau SpS;;
+78;BRICLOT (TICAGRELOR) 90MG;Untuk pasien kasus PCI dengan Acute Coronary Syndrome (ACS), BUKTI DOKUMEN PCI;60 tab/bulan, maks 1 tahun;JANTUNG
+79;V-BLOC (CARVEDILOL) 6,25MG*;Hanya untuk gagal jantung kronis dengan penurunan fungsi ventrikular sistolik yang sudah terkompensasi.;60 TAB/ BULAN;JANTUNG
+80;UPERIO (SACUBITRIL + VALSARTAN);Hanya untuk pasien yang tidak respons terhadap golongan ARB dan ACE inhibitor;60 TAB/ BULAN;JANTUNG
+;;Hanya pada pasien dengan reduced ejection fraction (LVEF ≤ 40%).;;
+81;ATORVASTATIN 20MG;Pasien ASCVD (pasca PCI) Target LDL  adalah ≤ 70 mg/dL, yang harus  diperiksa setiap 6 bulan;60 TAB/ BULAN;JANTUNG
+82;FENOFIBRAT 100MG, 300MG;Hanya untuk hipertrigliseridemia dengan kadar trigliserida > 250 mg/dL.;30 CAP/ BULAN;"P. DALAM; JANTUNG; SYARAF"
+83;GEMFIBROZIL 300MG;Hanya untuk hipertrigliseridemia. Tidak dianjurkan diberikan bersama statin.;30 CAP/ BULAN;"P. DALAM; JANTUNG; SYARAF"
+84;SIMVASTATIN 10MG, 20MG*;kadar LDL > 160 mg/dL untuk pasien tanpa komplikasi diabetes melitus/PJK.;30 TAB/BULAN;"P. DALAM; JANTUNG; SYARAF"
+;;kadar LDL > 130 mg/dL untuk pasien diabetes melitus,  pemeriksaan laboratorium LDL dilampirkan setiap 6 bulan;;
+;;Pasien ASCVD (pasca PCI, CABG, stroke iskemi dan/atau PAD, pascainfark) yang dibuktikan dengan EKG atau MSCT atau riwayat angiografi. Target LDL adalah ≤ 70 mg/dL, yang harus diperiksa setiap 6 bulan.;;
+85;ALPRAZOLAM 0,5MG;Hanya dapat diresepkan oleh Dokter Spesialis Kedokteran Jiwa dan Internis Psikosomatik;30 TAB/BULAN;JIWA
+86;DIAZEPAM 2MG, 5MG;-;30 TAB/BULAN;JIWA
+87;CLOBAZAM 10MG;-;60 TAB/ BULAN;"SYARAF; JIWA"
+88;LORAZEPAM 2MG;-;30 TAB/BULAN;JIWA
+89;AMITRIPTILIN 25 MG;-;60 TAB/BULAN;"P. DALAM; SYARAF; JIWA"
+90;FLUOKSETIN 20MG;-;60 CAP/ BULAN;JIWA
+91;SERTRALIN 50MG;Digunakan untuk depresi yang disertai ansietas;30 TAB/BULAN;JIWA
+92;ARIPIPRAZOL 10MG;Hanya dapat diresepkan oleh Dokter Spesialis Kedokteran Jiwa;30 TAB/BULAN;JIWA
+93;"HALOPERIDOL 0,5MG; 5MG";-;90 TAB/BULAN;"SYARAF; JIWA"
+94;CLOZAPIN 25MG;Hanya untuk pengobatan psikosis yang sudah resisten terhadap antipsikotik lain;60 TAB/ BULAN;JIWA
+95;SOROQUIN (QUETIAPIN) SR 200MG*;"Untuk skizofrenia. Untuk pasien bipolar yang tidak 
+memberikan respons terhadap pemberian litium atau valproat.";60 TAB/ BULAN;JIWA
+;;Hanya dapat diresepkan oleh Dokter Spesialis Kedokteran Jiwa;;
+96;RISPERIDON 1MG*;a) Utk skizofrenia. b) Adjunctive treatment pada pasien bipolar yang tidak memberikan respons dengan pemberian litium atau valproat.;60 TAB/BULAN;JIWA
+;;Hanya dapat diresepkan oleh Dokter Spesialis Kedokteran Jiwa;;
+97;RISPERIDON 2MG*;a) Utk skizofrenia. b) Adjunctive treatment pada pasien bipolar yang tidak memberikan respons dengan pemberian litium atau valproat.;90 TAB/BULAN;JIWA
+;;Hanya dapat diresepkan oleh Dokter Spesialis Kedokteran Jiwa;;
+98;STELOSI (TRIFLUOROPERAZIN) 5MG*;Hanya dapat diresepkan oleh Dokter Spesialis Kedokteran Jiwa.;90 TAB/BULAN;JIWA
+99;METILFENIDAT 10MG;ADHD;90 TAB/BULAN;"JIWA; ANAK"
+100;"DONEPEZIL 5MG; DISP 10MG";Hanya untuk demensia alzheimer ringan sampai sedang. Hanya diresepkan oleh neurologi /spesialis jiwa brdsrkn pemeriksaan neurobehaviour.;30 TAB/BULAN;"SYARAF; JIWA"
+101;URSODEOXYCHOLIC ACID 250MG;-;90 CAP/ BULAN;P. DALAM
+102;FEROVELL (FENOTEROL) INHALER*;Hanya untuk serangan asma akut.;1 TABUNG/BULAN;PARU
+103;SPIRIVA RESPIMAT (TIOTROPRIUM BROMIDE);Hanya digunakan untuk PPOK, termasuk bronkitis kronik dan emfisema Maks 1 cartridge REFILL/bulan;1 ALAT RESPIMAT/6 BULAN;PARU
+104;SYMBICORT 160/4,5 (BUDESONIDE/FORMOTEROL) 120DOSIS TURBUHALER;Utk trp rumatan pd asma. Utk trp pelega pd asma persisten sdg-berat.Utk trp rumatan pd PPOK.Tdk utk bronkhospasme akut;2 TABUNG/BULAN;PARU
+105;SYMBICORT 160/4,5 (BUDESONIDE/FORMOTEROL) 120DOSIS RAPIHALER;Utk trp rumatan pd asma. Utk trp pelega pd asma persisten sdg-berat.Utk trp rumatan pd PPOK.Tdk utk bronkhospasme akut;2 TABUNG/BULAN;PARU
+106;"SERETIDE 250; 500 (SALMETEROL/FLUTICASON)";Tidak diberikan pada kasus asma akut;1 DISKUS/ BULAN;PARU
+107;SUPRASMA (SALBUTAMOL) INHALER;"Sebagai pelega pada asma kronis disertai pemberian bersama kombinasi steroid inhalasi dan beta 2 agonis kerja panjang; atau";1 TABUNG/ BULAN;PARU
+;;"Digunakan untuk bronkospasme yang menyertai PPOK; atau Digunakan untuk bronkospasme yang menyertai SOPT (Sindrom  Obstruksi Pasca  Tuberkulosis). ";;
+108;"ONBREZZ 150;300 (INDACATEROL)";-;30 CAPS INH/ BULAN;PARU
+109;VITAMIN B6;-;30 TAB/BULAN;ALL POLI
+110;VITAMIN B12;-;30 TAB/BULAN;ALL POLI
+111;VITAMIN B1;-;30 TAB/BULAN;ALL POLI
+112;VITAMIN B KOMPLEK;Untuk pengobatan defisiensi vitamin B1, B6, dan B12 ;30 TAB/BULAN;ALL POLI

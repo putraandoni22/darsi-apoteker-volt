@@ -1,0 +1,247 @@
+{
+  "generatedAt": "2026-04-13T22:00:01.440Z",
+  "completedAt": "2026-04-13T22:00:01.446Z",
+  "durationMs": 6,
+  "dryRun": true,
+  "apiUrl": "dry-run://local",
+  "aggregate": {
+    "averageF1": 0.80718884,
+    "averagePrecision": 0.67765171,
+    "averageRecall": 1,
+    "averageAccuracy": 0.67765171,
+    "averagePseudoPerplexity": 16.57242177,
+    "exactMatchRate": 0,
+    "toolCallingPassRate": 1,
+    "icdPassRate": 1
+  },
+  "results": [
+    {
+      "id": "SCN-001",
+      "patientId": "pasien-rsi-1001",
+      "question": "Tolong berikan kode ICD-10 untuk hipertensi primer dan rekomendasi obat awal.",
+      "expectedAnswer": "Kode ICD-10 yang relevan adalah I10 (Essential primary hypertension). Sertakan validasi klinis serta rekomendasi obat berbasis data RSI/e-Fornas.",
+      "generatedAnswer": "Kode ICD-10 yang relevan adalah I10 (Essential primary hypertension). Sertakan validasi klinis serta rekomendasi obat berbasis data RSI/e-Fornas.\n\n[DRY RUN] Jawaban ini disimulasikan dari expected answer.",
+      "apiUrl": "dry-run://local",
+      "elapsedMs": 0,
+      "toolCalling": {
+        "pass": true,
+        "expectedTools": [
+          "search_icd_code",
+          "recommend-medicines",
+          "search-medicines"
+        ],
+        "calledTools": [
+          "search_icd_code",
+          "recommend-medicines",
+          "search-medicines"
+        ],
+        "matchedTools": [
+          "search_icd_code",
+          "recommend-medicines",
+          "search-medicines"
+        ],
+        "missingTools": [],
+        "extraTools": [],
+        "source": "heuristic"
+      },
+      "icd10": {
+        "pass": true,
+        "expectedCodes": [
+          "I10"
+        ],
+        "generatedCodes": [
+          "I10"
+        ],
+        "matchedCodes": [
+          "I10"
+        ],
+        "reason": "Kode ICD-10 cocok: I10"
+      },
+      "metrics": {
+        "f1": 0.8260869565217391,
+        "precision": 0.7037037037037037,
+        "recall": 1,
+        "accuracy": 0.7037037037037037,
+        "exactMatch": false,
+        "pseudoPerplexity": 17.93797306419732,
+        "crossEntropy": 4.164944974250437
+      }
+    },
+    {
+      "id": "SCN-002",
+      "patientId": "pasien-rsi-1002",
+      "question": "Saya sedang minum Warfarin dan Aspirin. Tolong cek ada interaksi berbahaya atau tidak.",
+      "expectedAnswer": "Jawaban harus memuat skrining interaksi Warfarin + Aspirin, peringatan klinis bila ada risiko perdarahan, dan arahan verifikasi apoteker/dokter.",
+      "generatedAnswer": "Jawaban harus memuat skrining interaksi Warfarin + Aspirin, peringatan klinis bila ada risiko perdarahan, dan arahan verifikasi apoteker/dokter.\n\n[DRY RUN] Jawaban ini disimulasikan dari expected answer.",
+      "apiUrl": "dry-run://local",
+      "elapsedMs": 0,
+      "toolCalling": {
+        "pass": true,
+        "expectedTools": [
+          "check_medication_interaction",
+          "search-medicines"
+        ],
+        "calledTools": [
+          "check_medication_interaction",
+          "search-medicines"
+        ],
+        "matchedTools": [
+          "check_medication_interaction",
+          "search-medicines"
+        ],
+        "missingTools": [],
+        "extraTools": [],
+        "source": "heuristic"
+      },
+      "icd10": {
+        "pass": true,
+        "expectedCodes": [],
+        "generatedCodes": [],
+        "matchedCodes": [],
+        "reason": "ICD-10 tidak diwajibkan untuk skenario ini."
+      },
+      "metrics": {
+        "f1": 0.8095238095238095,
+        "precision": 0.68,
+        "recall": 1,
+        "accuracy": 0.68,
+        "exactMatch": false,
+        "pseudoPerplexity": 16.3515958353862,
+        "crossEntropy": 4.03135953742707
+      }
+    },
+    {
+      "id": "SCN-003",
+      "patientId": "pasien-rsi-1003",
+      "question": "Apakah Parasetamol tersedia di e-Fornas dan bagaimana restriksinya?",
+      "expectedAnswer": "Jawaban harus menyebut hasil pencarian e-Fornas untuk Parasetamol, termasuk ketersediaan/kelas terapi/restriksi jika ada.",
+      "generatedAnswer": "Jawaban harus menyebut hasil pencarian e-Fornas untuk Parasetamol, termasuk ketersediaan/kelas terapi/restriksi jika ada.\n\n[DRY RUN] Jawaban ini disimulasikan dari expected answer.",
+      "apiUrl": "dry-run://local",
+      "elapsedMs": 0,
+      "toolCalling": {
+        "pass": true,
+        "expectedTools": [
+          "search-efornas"
+        ],
+        "calledTools": [
+          "search-efornas"
+        ],
+        "matchedTools": [
+          "search-efornas"
+        ],
+        "missingTools": [],
+        "extraTools": [],
+        "source": "heuristic"
+      },
+      "icd10": {
+        "pass": true,
+        "expectedCodes": [],
+        "generatedCodes": [],
+        "matchedCodes": [],
+        "reason": "ICD-10 tidak diwajibkan untuk skenario ini."
+      },
+      "metrics": {
+        "f1": 0.7647058823529412,
+        "precision": 0.6190476190476191,
+        "recall": 1,
+        "accuracy": 0.6190476190476191,
+        "exactMatch": false,
+        "pseudoPerplexity": 14.391728903653682,
+        "crossEntropy": 3.8471680108641264
+      }
+    },
+    {
+      "id": "SCN-004",
+      "patientId": "pasien-rsi-1004",
+      "question": "Berikan kode ICD untuk diabetes melitus tipe 2 dan contoh terapi oral yang sering dipakai.",
+      "expectedAnswer": "Kode ICD-10 relevan untuk diabetes melitus tipe 2 adalah E11 (atau turunannya seperti E11.9), disertai opsi terapi oral yang sesuai data internal.",
+      "generatedAnswer": "Kode ICD-10 relevan untuk diabetes melitus tipe 2 adalah E11 (atau turunannya seperti E11.9), disertai opsi terapi oral yang sesuai data internal.\n\n[DRY RUN] Jawaban ini disimulasikan dari expected answer.",
+      "apiUrl": "dry-run://local",
+      "elapsedMs": 0,
+      "toolCalling": {
+        "pass": true,
+        "expectedTools": [
+          "search_icd_code",
+          "recommend-medicines",
+          "search-medicines"
+        ],
+        "calledTools": [
+          "search_icd_code",
+          "recommend-medicines",
+          "search-medicines"
+        ],
+        "matchedTools": [
+          "search_icd_code",
+          "recommend-medicines",
+          "search-medicines"
+        ],
+        "missingTools": [],
+        "extraTools": [],
+        "source": "heuristic"
+      },
+      "icd10": {
+        "pass": true,
+        "expectedCodes": [
+          "E11"
+        ],
+        "generatedCodes": [
+          "E11",
+          "E11.9"
+        ],
+        "matchedCodes": [
+          "E11"
+        ],
+        "reason": "Kode ICD-10 cocok: E11"
+      },
+      "metrics": {
+        "f1": 0.846153846153846,
+        "precision": 0.7333333333333333,
+        "recall": 1,
+        "accuracy": 0.7333333333333333,
+        "exactMatch": false,
+        "pseudoPerplexity": 19.40696045378751,
+        "crossEntropy": 4.278502273648226
+      }
+    },
+    {
+      "id": "SCN-005",
+      "patientId": "pasien-rsi-1005",
+      "question": "Bagaimana status operasional live untuk stok obat dan antrian dispensing hari ini?",
+      "expectedAnswer": "Jawaban harus menampilkan ringkasan status operasional live (stok/antrian/dispensing) atau menyatakan keterbatasan data live secara jelas.",
+      "generatedAnswer": "Jawaban harus menampilkan ringkasan status operasional live (stok/antrian/dispensing) atau menyatakan keterbatasan data live secara jelas.\n\n[DRY RUN] Jawaban ini disimulasikan dari expected answer.",
+      "apiUrl": "dry-run://local",
+      "elapsedMs": 0,
+      "toolCalling": {
+        "pass": true,
+        "expectedTools": [
+          "get-live-system-status"
+        ],
+        "calledTools": [
+          "get-live-system-status"
+        ],
+        "matchedTools": [
+          "get-live-system-status"
+        ],
+        "missingTools": [],
+        "extraTools": [],
+        "source": "heuristic"
+      },
+      "icd10": {
+        "pass": true,
+        "expectedCodes": [],
+        "generatedCodes": [],
+        "matchedCodes": [],
+        "reason": "ICD-10 tidak diwajibkan untuk skenario ini."
+      },
+      "metrics": {
+        "f1": 0.7894736842105263,
+        "precision": 0.6521739130434783,
+        "recall": 1,
+        "accuracy": 0.6521739130434783,
+        "exactMatch": false,
+        "pseudoPerplexity": 14.773850577864708,
+        "crossEntropy": 3.884973986364941
+      }
+    }
+  ]
+}

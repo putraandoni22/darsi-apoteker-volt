@@ -1,0 +1,24 @@
+# Dependency directories
+node_modules/
+
+# Environment variables (SANGAT PENTING!)
+.env
+.env.*
+!.env.example
+
+# Database lokal & data demo
+ui/data/*.db
+ui/data/*.db-*
+
+# Next.js build
+ui/.next/
+ui/node_modules/
+
+# Build output
+dist/
+
+# VoltAgent local memory database (Supaya memori percakapan lokal tidak tertumpuk di server)
+.voltagent/
+
+# Mac OS folder settings (opsional tapi bagus untuk ada)
+.DS_Store

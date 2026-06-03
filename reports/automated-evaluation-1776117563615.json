@@ -1,0 +1,249 @@
+{
+  "generatedAt": "2026-04-13T21:59:11.123Z",
+  "completedAt": "2026-04-13T21:59:23.615Z",
+  "durationMs": 12492,
+  "dryRun": false,
+  "apiUrl": "http://localhost:1337/api/chat",
+  "aggregate": {
+    "averageF1": 0.08377531,
+    "averagePrecision": 0.04629234,
+    "averageRecall": 0.46818218,
+    "averageAccuracy": 0,
+    "averagePseudoPerplexity": 97.82110592,
+    "exactMatchRate": 0,
+    "toolCallingPassRate": 1,
+    "icdPassRate": 0.8
+  },
+  "results": [
+    {
+      "id": "SCN-001",
+      "patientId": "pasien-rsi-1001",
+      "question": "Tolong berikan kode ICD-10 untuk hipertensi primer dan rekomendasi obat awal.",
+      "expectedAnswer": "Kode ICD-10 yang relevan adalah I10 (Essential primary hypertension). Sertakan validasi klinis serta rekomendasi obat berbasis data RSI/e-Fornas.",
+      "generatedAnswer": "Mapping kondisi \"hipertensi primer\" ke opsi terapi dari data internal RSI:\n\n- ICD-10 paling relevan: I10 (Essential (primary) hypertension)\n- Opsi terapi yang sesuai: DOPAMET 250MG, TELMISARTAN 40MG, 80MG, BERAPROST 20MCG, SILDENAFIL 20MG\n- Peresepan obat RSI: [No. 65] DOPAMET 250MG: 90 TAB/BULAN; [No. 70] TELMISARTAN 40MG, 80MG: 30 TAB/BULAN; [No. 73] BERAPROST 20MCG: 90 TAB/BULAN; [No. 74] SILDENAFIL 20MG: 90 TAB/BULAN\n- Data obat terkonfirmasi: 1) [No. 65] DOPAMET 250MG | Peresepan: 90 TAB/BULAN | Restriksi: hanya untuk hipertensi pada wanita hamil ; 2) [No. 70] TELMISARTAN 40MG, 80MG | Peresepan: 30 TAB/BULAN | Restriksi: Digunakan untuk hipertensi dengan nilai eGFR < 30 mL/menit/1,73 m2. ; 3) [No. 73] BERAPROST 20MCG | Peresepan: 90 TAB/BULAN | Restriksi: ANTIHIPERTENSI PULMONAL\n- Nomor obat RSI: 65 (DOPAMET 250MG); 70 (TELMISARTAN 40MG, 80MG); 73 (BERAPROST 20MCG); 74 (SILDENAFIL 20MG)\n\nCatatan klinis:\n- Keputusan terapi dan dosis akhir tetap mengikuti penilaian dokter/apoteker.\nReferensi internal: Rekomendasi Obat Berdasarkan Penyakit RSI; Database ICD10 RSI.\n[Sumber: Data Internal RSI (Rekomendasi Penyakit RSI, ICD10 RSI)]",
+      "apiUrl": "http://localhost:1337/api/chat",
+      "elapsedMs": 6691,
+      "toolCalling": {
+        "pass": true,
+        "expectedTools": [
+          "search_icd_code",
+          "recommend-medicines",
+          "search-medicines"
+        ],
+        "calledTools": [
+          "search_icd_code",
+          "search-medicines",
+          "recommend-medicines"
+        ],
+        "matchedTools": [
+          "search_icd_code",
+          "recommend-medicines",
+          "search-medicines"
+        ],
+        "missingTools": [],
+        "extraTools": [],
+        "source": "heuristic"
+      },
+      "icd10": {
+        "pass": true,
+        "expectedCodes": [
+          "I10"
+        ],
+        "generatedCodes": [
+          "I10"
+        ],
+        "matchedCodes": [
+          "I10"
+        ],
+        "reason": "Kode ICD-10 cocok: I10"
+      },
+      "metrics": {
+        "f1": 0.12290502793296092,
+        "precision": 0.06875,
+        "recall": 0.5789473684210527,
+        "accuracy": 0,
+        "exactMatch": false,
+        "pseudoPerplexity": 84.64099829109728,
+        "crossEntropy": 6.403284738184316
+      }
+    },
+    {
+      "id": "SCN-002",
+      "patientId": "pasien-rsi-1002",
+      "question": "Saya sedang minum Warfarin dan Aspirin. Tolong cek ada interaksi berbahaya atau tidak.",
+      "expectedAnswer": "Jawaban harus memuat skrining interaksi Warfarin + Aspirin, peringatan klinis bila ada risiko perdarahan, dan arahan verifikasi apoteker/dokter.",
+      "generatedAnswer": "**[WARNING KLINIS]** Ditemukan potensi interaksi/kontraindikasi klinis penting.\n\nSaya dapat membalas pertanyaan Anda sebagai Apoteker.\n\nAda interaksi berbahaya antara Warfarin dan Aspirin. Interaksi antara kedua obat ini dapat meningkatkan risiko perdarahan mayor. Sebagai alternatif, Anda dapat mempertimbangkan penggunaan antikoagulan lainnya selain warfarin. Pastikan untuk berdiskusi dengan dokter atau apoteker RSI Surabaya untuk merencanakan perubahan dosis yang tepat.\n\nCatatan khusus: Saya sarankan Anda memindahkan obat-obatan yang berpotensi berguna ke tempatnya masing-masing untuk memastikan ketersediaan dan konsentrasi obat yang optimal.\n\nPerlu diingat bahwa apoteker dapat memberikan konsultasi yang lebih rinci.\n\nNomor Obat RSI terkait: 24 (WARFARIN 2MG).\n\nCatatan klinis: verifikasi klinis tetap diperlukan sesuai resep dokter/apoteker.\n\nReferensi internal: Database Obat Kronis RSI Surabaya; Aturan Interaksi Obat Internal DARSI.\n[Sumber: Data Internal RSI (Obat Kronis RSI, Aturan Interaksi)]",
+      "apiUrl": "http://localhost:1337/api/chat",
+      "elapsedMs": 3272,
+      "toolCalling": {
+        "pass": true,
+        "expectedTools": [
+          "check_medication_interaction",
+          "search-medicines"
+        ],
+        "calledTools": [
+          "search-medicines",
+          "check_medication_interaction"
+        ],
+        "matchedTools": [
+          "check_medication_interaction",
+          "search-medicines"
+        ],
+        "missingTools": [],
+        "extraTools": [],
+        "source": "heuristic"
+      },
+      "icd10": {
+        "pass": true,
+        "expectedCodes": [],
+        "generatedCodes": [],
+        "matchedCodes": [],
+        "reason": "ICD-10 tidak diwajibkan untuk skenario ini."
+      },
+      "metrics": {
+        "f1": 0.11267605633802819,
+        "precision": 0.064,
+        "recall": 0.47058823529411764,
+        "accuracy": 0,
+        "exactMatch": false,
+        "pseudoPerplexity": 97.59595764355225,
+        "crossEntropy": 6.60874948849135
+      }
+    },
+    {
+      "id": "SCN-003",
+      "patientId": "pasien-rsi-1003",
+      "question": "Apakah Parasetamol tersedia di e-Fornas dan bagaimana restriksinya?",
+      "expectedAnswer": "Jawaban harus menyebut hasil pencarian e-Fornas untuk Parasetamol, termasuk ketersediaan/kelas terapi/restriksi jika ada.",
+      "generatedAnswer": "Ditemukan 4 hasil dari e-Fornas:\n\n📌 parasetamol\n   Nama Internasional: paracetamol\n   Kelas Terapi: ANALGESIK, ANTIPIRETIK, ANTIINFLAMASI NON STEROID, ANTIPIRAI → ANALGESIK NON NARKOTIK\n   Sediaan: DROPS 100 MILIGRAM / MILILITER\n   Tersedia di: FKTP, FKTL, OEN\n   Peresepan Maksimal: 1 btl/kasus.\n\n📌 parasetamol\n   Nama Internasional: paracetamol\n   Kelas Terapi: ANALGESIK, ANTIPIRETIK, ANTIINFLAMASI NON STEROID, ANTIPIRAI → ANALGESIK NON NARKOTIK\n   Sediaan: INFUS 10 MILIGRAM / MILILITER\n   Tersedia di: FKTL\n   Peresepan Maksimal: 3 btl/hari, maks. 3 hari.\n\n📌 parasetamol\n   Nama Internasional: paracetamol\n   Kelas Terapi: ANALGESIK, ANTIPIRETIK, ANTIINFLAMASI NON STEROID, ANTIPIRAI → ANALGESIK NON NARKOTIK\n   Sediaan: SIRUP 120 MILIGRAM / 5 MILILITER\n   Tersedia di: FKTP, FKTL, OEN\n   Peresepan Maksimal: 2 btl/kasus.\n\n📌 parasetamol\n   Nama Internasional: paracetamol\n   Kelas Terapi: ANALGESIK, ANTIPIRETIK, ANTIINFLAMASI NON STEROID, ANTIPIRAI → ANALGESIK NON NARKOTIK\n   Sediaan: TABLET 500 MILIGRAM\n   Tersedia di: FKTP, FKTL, OEN\n   Peresepan Maksimal: 180 tab/bulan.\n\nCatatan klinis: verifikasi klinis tetap diperlukan sesuai resep dokter/apoteker.\n\nReferensi internal: Database e-Fornas Kementerian Kesehatan RI.\n[Sumber: Data Internal RSI (e-Fornas)]",
+      "apiUrl": "http://localhost:1337/api/chat",
+      "elapsedMs": 1416,
+      "toolCalling": {
+        "pass": true,
+        "expectedTools": [
+          "search-efornas"
+        ],
+        "calledTools": [
+          "search-efornas"
+        ],
+        "matchedTools": [
+          "search-efornas"
+        ],
+        "missingTools": [],
+        "extraTools": [],
+        "source": "heuristic"
+      },
+      "icd10": {
+        "pass": true,
+        "expectedCodes": [],
+        "generatedCodes": [],
+        "matchedCodes": [],
+        "reason": "ICD-10 tidak diwajibkan untuk skenario ini."
+      },
+      "metrics": {
+        "f1": 0.03773584905660377,
+        "precision": 0.02054794520547945,
+        "recall": 0.23076923076923078,
+        "accuracy": 0,
+        "exactMatch": false,
+        "pseudoPerplexity": 75.060844585835,
+        "crossEntropy": 6.22998861843147
+      }
+    },
+    {
+      "id": "SCN-004",
+      "patientId": "pasien-rsi-1004",
+      "question": "Berikan kode ICD untuk diabetes melitus tipe 2 dan contoh terapi oral yang sering dipakai.",
+      "expectedAnswer": "Kode ICD-10 relevan untuk diabetes melitus tipe 2 adalah E11 (atau turunannya seperti E11.9), disertai opsi terapi oral yang sesuai data internal.",
+      "generatedAnswer": "Mapping kondisi \"diabetes melitus tipe\" ke opsi terapi dari data internal RSI:\n\n- ICD-10 paling relevan: E23.2 (Diabetes insipidus)\n- Opsi terapi yang sesuai: INSULIN BASAL (LANTUS, LEVEMIR, SANSULIN LONG), INSULIN  CAMPURAN (RYZODEG, HUMALOG MIX, NOVOMIX), SIMVASTATIN 10MG, 20MG\n- Peresepan obat RSI: [No. 44] INSULIN BASAL (LANTUS, LEVEMIR, SANSULIN LONG): informasi belum tersedia; [No. 46] INSULIN  CAMPURAN (RYZODEG, HUMALOG MIX, NOVOMIX): informasi belum tersedia; [No. 84] SIMVASTATIN 10MG, 20MG: 30 TAB/BULAN\n- Data obat terkonfirmasi: 1) [No. 44] INSULIN BASAL (LANTUS, LEVEMIR, SANSULIN LONG) | Peresepan: informasi belum tersedia | Restriksi: Pasien diabetes melitus tipe 2 yang sudah diberikan kombinasi metformin dosis optimal dan obat diabetes oral lainnya namun kadar glukosa darahnya belum terkendali (HbA1C > 7,5% atau gula darah rerata > 169 mg/dL). ATAU Pasien diabetes melitus tipe 2  dengan kadar HbA1C nya > 9%  disertai dengan gejala-gejala  dekompensasi metabolik. ; 2) [No. 46] INSULIN  CAMPURAN (RYZODEG, HUMALOG MIX, NOVOMIX) | Peresepan: informasi belum tersedia | Restriksi: Pasien diabetes melitus tipe 2 yang sudah diberikan kombinasi metformin dosis optimal dan obat diabetes oral lainnya namun kadar glukosa darahnya belum terkendali (HbA1C > 7,5% atau gula darah rerata > 169 mg/dL). ATAU Pasien diabetes melitus tipe 2  dengan kadar HbA1C nya > 9%  disertai dengan gejala-gejala  dekompensasi metabolik. ; 3) [No. 84] SIMVASTATIN 10MG, 20MG | Peresepan: 30 TAB/BULAN | Restriksi: kadar LDL > 160 mg/dL untuk pasien tanpa komplikasi diabetes melitus/PJK. kadar LDL > 130 mg/dL untuk pasien diabetes melitus,  pemeriksaan laboratorium LDL dilampirkan setiap 6 bulan Pasien ASCVD (pasca PCI, CABG, stroke iskemi dan/atau PAD, pascainfark) yang dibuktikan dengan EKG atau MSCT atau riwayat angiografi. Target LDL adalah ≤ 70 mg/dL, yang harus diperiksa setiap 6 bulan.\n- Nomor obat RSI: 44 (INSULIN BASAL (LANTUS, LEVEMIR, SANSULIN LONG)); 46 (INSULIN  CAMPURAN (RYZODEG, HUMALOG MIX, NOVOMIX)); 84 (SIMVASTATIN 10MG, 20MG)\n\nCatatan klinis:\n- Keputusan terapi dan dosis akhir tetap mengikuti penilaian dokter/apoteker.\nReferensi internal: Database ICD10 RSI.\n[Sumber: Data Internal RSI (ICD10 RSI)]",
+      "apiUrl": "http://localhost:1337/api/chat",
+      "elapsedMs": 670,
+      "toolCalling": {
+        "pass": true,
+        "expectedTools": [
+          "search_icd_code",
+          "recommend-medicines",
+          "search-medicines"
+        ],
+        "calledTools": [
+          "search_icd_code",
+          "search-medicines",
+          "recommend-medicines"
+        ],
+        "matchedTools": [
+          "search_icd_code",
+          "recommend-medicines",
+          "search-medicines"
+        ],
+        "missingTools": [],
+        "extraTools": [],
+        "source": "heuristic"
+      },
+      "icd10": {
+        "pass": false,
+        "expectedCodes": [
+          "E11"
+        ],
+        "generatedCodes": [
+          "E23.2"
+        ],
+        "matchedCodes": [],
+        "reason": "Tidak ada kecocokan dari kode yang diharapkan: E11"
+      },
+      "metrics": {
+        "f1": 0.09580838323353293,
+        "precision": 0.05128205128205128,
+        "recall": 0.7272727272727273,
+        "accuracy": 0,
+        "exactMatch": false,
+        "pseudoPerplexity": 130.85686807489333,
+        "crossEntropy": 7.031845836572272
+      }
+    },
+    {
+      "id": "SCN-005",
+      "patientId": "pasien-rsi-1005",
+      "question": "Bagaimana status operasional live untuk stok obat dan antrian dispensing hari ini?",
+      "expectedAnswer": "Jawaban harus menampilkan ringkasan status operasional live (stok/antrian/dispensing) atau menyatakan keterbatasan data live secara jelas.",
+      "generatedAnswer": "STATUS OPERASIONAL APOTEKER (LIVE)\n\n[MONITORING STOK]\n- Total item: 3\n- Total unit: 81\n- Aman: 2\n- Menipis: 1\n- Kritis: 0\n- Prioritas stok rendah:\n  • KRN-0023 | VITAMIN B12 | stok 10 | status menipis\n\n[STATUS DISPENSING / PENYERAHAN]\n- Total order: 3\n- Menunggu validasi resep: 0\n- Menunggu pembayaran (antrian): 0\n- Siap diracik: 0\n- Sedang diracik: 0\n- Siap diserahkan: 0\n- Sudah diserahkan: 3\n- Dibatalkan: 0\n- Belum diserahkan: 0\n- Tidak ada order dispensing aktif pada filter saat ini.\n- Aktivitas transaksi terbaru:\n  • 2026-04-13T16:21:16.211Z | dsp-58712f4e | pasien 2 | VITAMIN B12 | resep RSP-20260413-00001 | workflow diserahkan | bayar lunas\n  • 2026-04-13T08:39:35.650Z | dsp-825ab4b8 | Pasien 1 | air steril untuk injeksi | resep RSP-20260411-00002 | workflow diserahkan | bayar lunas\n  • 2026-04-12T09:38:45.806Z | dsp-5c02cdf0 | Pasien 1 | air steril untuk injeksi | resep RSP-20260411-00001 | workflow diserahkan | bayar lunas\n\n[STATUS PEMBAYARAN]\n- Menunggu pembayaran: 0\n- Lunas: 3\n- Gagal: 0\n- Dibatalkan: 0\n- Refund: 0\n- Tidak ada order yang menunggu pembayaran pada filter saat ini.\n\nCatatan klinis: verifikasi klinis tetap diperlukan sesuai resep dokter/apoteker.\n\nReferensi internal: Sistem Operasional Live Apotek RSI.\n[Sumber: Data Internal RSI (Operasional Live)]",
+      "apiUrl": "http://localhost:1337/api/chat",
+      "elapsedMs": 434,
+      "toolCalling": {
+        "pass": true,
+        "expectedTools": [
+          "get-live-system-status"
+        ],
+        "calledTools": [
+          "search_icd_code",
+          "get-live-system-status"
+        ],
+        "matchedTools": [
+          "get-live-system-status"
+        ],
+        "missingTools": [],
+        "extraTools": [
+          "search_icd_code"
+        ],
+        "source": "heuristic"
+      },
+      "icd10": {
+        "pass": true,
+        "expectedCodes": [],
+        "generatedCodes": [
+          "B12"
+        ],
+        "matchedCodes": [],
+        "reason": "ICD-10 tidak diwajibkan untuk skenario ini."
+      },
+      "metrics": {
+        "f1": 0.04975124378109453,
+        "precision": 0.026881720430107527,
+        "recall": 0.3333333333333333,
+        "accuracy": 0,
+        "exactMatch": false,
+        "pseudoPerplexity": 100.95086099631796,
+        "crossEntropy": 6.657509405048579
+      }
+    }
+  ]
+}

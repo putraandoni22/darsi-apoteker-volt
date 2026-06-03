@@ -1,0 +1,58 @@
+[
+  {
+    "id": "faq-001",
+    "keywords": ["jam layanan apotek", "jam apotek", "operasional apotek"],
+    "answerPasien": "Layanan apotek mengikuti jam operasional RSI Surabaya. Untuk jam terbaru per unit, silakan konfirmasi ke petugas pendaftaran atau call center RSI.",
+    "answerApoteker": "Konfirmasi jam layanan mengacu SOP operasional unit farmasi RSI terbaru. Jika ada perubahan shift, pastikan update disampaikan di front desk.",
+    "source": "CURATED_FAQ"
+  },
+  {
+    "id": "faq-002",
+    "keywords": ["obat tidak ditemukan", "obat tidak ada", "tidak tersedia"],
+    "answerPasien": "Jika obat tidak ditemukan di data saat ini, mohon cek ejaan nama obat atau gunakan nama generik. Anda juga bisa menanyakan kelas terapi yang sesuai.",
+    "answerApoteker": "Jika obat tidak ditemukan, lakukan verifikasi ejaan/generik, cek substitusi terapi, lalu konfirmasi ke stok dan formularium internal.",
+    "source": "CURATED_FAQ"
+  },
+  {
+    "id": "faq-003",
+    "keywords": ["bpjs", "jaminan bpjs", "asuransi bpjs"],
+    "answerPasien": "DARSI saat ini belum terhubung penuh ke sistem BPJS real-time. Untuk kepastian jaminan, mohon verifikasi langsung ke petugas administrasi/BPJS RSI.",
+    "answerApoteker": "Integrasi BPJS real-time masih tahap onboarding. Gunakan prosedur verifikasi manual sampai data source BPJS aktif.",
+    "source": "CURATED_FAQ"
+  },
+  {
+    "id": "faq-004",
+    "keywords": ["asuransi swasta", "jaminan swasta"],
+    "answerPasien": "Informasi asuransi swasta belum terintegrasi penuh di DARSI. Mohon konfirmasi ke petugas administrasi untuk kepastian manfaat.",
+    "answerApoteker": "Sumber asuransi swasta masih planned. Gunakan alur verifikasi manual dengan tim admin/penjaminan.",
+    "source": "CURATED_FAQ"
+  },
+  {
+    "id": "faq-005",
+    "keywords": ["dosis", "aturan pakai", "cara minum"],
+    "answerPasien": "Untuk dosis dan aturan pakai yang aman, mohon ikuti resep dokter dan konfirmasi ke apoteker RSI. DARSI tidak menggantikan keputusan klinis.",
+    "answerApoteker": "Untuk pertanyaan dosis berisiko, pastikan verifikasi resep dan kondisi pasien sesuai SOP farmasi klinik RSI.",
+    "source": "CURATED_FAQ"
+  },
+  {
+    "id": "faq-006",
+    "keywords": ["interaksi obat", "kombinasi obat", "aman bersama"],
+    "answerPasien": "Interaksi obat harus diverifikasi apoteker/dokter. DARSI hanya membantu data awal dan tidak menggantikan penilaian klinis.",
+    "answerApoteker": "Untuk interaksi obat, gunakan referensi klinis resmi dan validasi akhir tetap oleh apoteker penanggung jawab.",
+    "source": "CURATED_FAQ"
+  },
+  {
+    "id": "faq-007",
+    "keywords": ["obat untuk diabetes", "diabetes"],
+    "answerPasien": "DARSI akan menampilkan obat dari data RSI dan e-Fornas. Keputusan terapi akhir tetap dokter/apoteker sesuai kondisi pasien.",
+    "answerApoteker": "Gunakan hasil RSI sebagai sumber utama, e-Fornas sebagai pembanding, dan lakukan verifikasi klinis bila ada perbedaan.",
+    "source": "CURATED_FAQ"
+  },
+  {
+    "id": "faq-008",
+    "keywords": ["stok obat", "ketersediaan stok", "obat habis"],
+    "answerPasien": "Status stok real-time belum sepenuhnya terintegrasi. Untuk kepastian ketersediaan, mohon verifikasi langsung ke apotek RSI.",
+    "answerApoteker": "Integrasi stok real-time menjadi prioritas onboarding berikutnya. Sementara gunakan pengecekan manual ke sistem stok internal.",
+    "source": "CURATED_FAQ"
+  }
+]

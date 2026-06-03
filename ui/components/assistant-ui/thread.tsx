@@ -1,0 +1,614 @@
+import {
+  ComposerAddAttachment,
+  ComposerAttachments,
+  UserMessageAttachments,
+} from "@/components/assistant-ui/attachment";
+import { MarkdownText } from "@/components/assistant-ui/markdown-text";
+import { ToolFallback } from "@/components/assistant-ui/tool-fallback";
+import { TooltipIconButton } from "@/components/assistant-ui/tooltip-icon-button";
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
+import {
+  ActionBarMorePrimitive,
+  ActionBarPrimitive,
+  AuiIf,
+  BranchPickerPrimitive,
+  ComposerPrimitive,
+  ErrorPrimitive,
+  MessagePrimitive,
+  SuggestionPrimitive,
+  ThreadPrimitive,
+  type ToolCallMessagePartProps,
+} from "@assistant-ui/react";
+import {
+  ArrowDownIcon,
+  ArrowUpIcon,
+  CheckIcon,
+  ChevronLeftIcon,
+  ChevronRightIcon,
+  CopyIcon,
+  DownloadIcon,
+  MoreHorizontalIcon,
+  PencilIcon,
+  RefreshCwIcon,
+  SquareIcon,
+} from "lucide-react";
+import { usePathname } from "next/navigation";
+import { type FC, useState } from "react";
+
+interface ThreadProps {
+  maxWidth?: string;
+  onToolApprovalResponse?: (params: {
+    id: string;
+    approved: boolean;
+    reason?: string;
+  }) => Promise<void>;
+}
+
+type AssistantContextMode = "apoteker" | "pasien" | "general";
+
+const DARSI_SUGGESTIONS: Record<AssistantContextMode, Array<{ title: string; description: string }>> = {
+  apoteker: [
+    {
+      title: "Validasi resep Warfarin + Aspirin",
+      description: "Cek interaksi, kontraindikasi, dan catatan klinis prioritas.",
+    },
+    {
+      title: "Mapping ICD-10 hipertensi ke opsi terapi",
+      description: "Gunakan konteks diagnosis untuk rekomendasi obat lebih relevan.",
+    },
+    {
+      title: "Ringkas stok kritis untuk dispensing hari ini",
+      description: "Fokuskan item obat dengan risiko kekosongan stok.",
+    },
+    {
+      title: "Bandingkan Amlodipin vs Captopril",
+      description: "Lihat ringkasan fungsi, sediaan, dan batas peresepan.",
+    },
+  ],
+  pasien: [
+    {
+      title: "Cek status resep RSP-2026-0001",
+      description: "Lihat progres peracikan dan kesiapan penyerahan obat.",
+    },
+    {
+      title: "Cara minum Metformin yang benar",
+      description: "Ringkasan aturan pakai dan tips kepatuhan terapi.",
+    },
+    {
+      title: "Apakah Parasetamol ada di e-Fornas?",
+      description: "Cek ketersediaan obat di formularium nasional.",
+    },
+    {
+      title: "Interaksi Simvastatin dengan obat lain",
+      description: "Tinjau potensi interaksi dan kapan perlu konsultasi dokter.",
+    },
+  ],
+  general: [
+    {
+      title: "Cek status Metformin 500 mg",
+      description: "Lihat ringkasan indikasi, bentuk, dan catatan stok obat.",
+    },
+    {
+      title: "Bandingkan Amlodipin vs Captopril",
+      description: "Bandingkan fungsi, sediaan, dan poin konseling apoteker.",
+    },
+    {
+      title: "Apakah Parasetamol ada di e-Fornas?",
+      description: "Cek ketersediaan dan detail formularium obat nasional.",
+    },
+    {
+      title: "Apakah ada interaksi Simvastatin dan Amlodipin?",
+      description: "Tinjau potensi interaksi obat dan saran tindak lanjut apoteker.",
+    },
+  ],
+};
+
+const DARSI_WELCOME: Record<
+  AssistantContextMode,
+  { title: string; subtitle: string; placeholder: string }
+> = {
+  apoteker: {
+    title: "Asisten Klinis Apoteker DARSI",
+    subtitle: "Bantu validasi resep, konteks ICD-10, dan rujukan RSI/e-Fornas.",
+    placeholder:
+      "Contoh: validasi resep warfarin dengan aspirin + diagnosis pasien",
+  },
+  pasien: {
+    title: "Asisten Obat Pasien DARSI",
+    subtitle: "Bantu edukasi obat, pemantauan resep, dan pertanyaan terapi harian.",
+    placeholder:
+      "Contoh: kapan minum obat ini dan apa yang perlu dihindari?",
+  },
+  general: {
+    title: "Selamat Datang di DARSI Apoteker",
+    subtitle: "Spesialis layanan farmasi RSI Surabaya.",
+    placeholder:
+      "Insya Allah, DARSI siap membantu. Ketik nama obat di sini...",
+  },
+};
+
+function resolveAssistantContextMode(pathname: string | null): AssistantContextMode {
+  if (pathname?.startsWith("/apoteker")) {
+    return "apoteker";
+  }
+
+  if (pathname?.startsWith("/pasien")) {
+    return "pasien";
+  }
+
+  return "general";
+}
+
+export const Thread: FC<ThreadProps> = ({
+  maxWidth = "44rem",
+  onToolApprovalResponse,
+}) => {
+  const pathname = usePathname();
+  const mode = resolveAssistantContextMode(pathname);
+
+  const AssistantMessageWithApproval: FC = () => {
+    return (
+      <AssistantMessage
+        onToolApprovalResponse={onToolApprovalResponse}
+      />
+    );
+  };
+
+  return (
+    <ThreadPrimitive.Root
+      className="aui-root aui-thread-root @container flex h-full flex-col bg-background"
+      style={{
+        ["--thread-max-width" as string]: maxWidth,
+      }}
+    >
+      <ThreadPrimitive.Viewport
+        turnAnchor="top"
+        className="aui-thread-viewport relative flex flex-1 flex-col overflow-x-auto overflow-y-scroll scroll-smooth px-4 pt-4"
+      >
+        <AuiIf condition={(s) => s.thread.isEmpty}>
+          <ThreadWelcome mode={mode} />
+        </AuiIf>
+
+        <ThreadPrimitive.Messages
+          components={{
+            UserMessage,
+            EditComposer,
+            AssistantMessage: AssistantMessageWithApproval,
+          }}
+        />
+
+        <ThreadPrimitive.ViewportFooter className="aui-thread-viewport-footer sticky bottom-0 mx-auto mt-auto flex w-full max-w-(--thread-max-width) flex-col gap-4 overflow-visible rounded-t-3xl bg-background pb-4 md:pb-6">
+          <ThreadScrollToBottom />
+          <Composer mode={mode} />
+        </ThreadPrimitive.ViewportFooter>
+      </ThreadPrimitive.Viewport>
+    </ThreadPrimitive.Root>
+  );
+};
+
+const ThreadScrollToBottom: FC = () => {
+  return (
+    <ThreadPrimitive.ScrollToBottom asChild>
+      <TooltipIconButton
+        tooltip="Scroll ke bawah"
+        variant="outline"
+        className="aui-thread-scroll-to-bottom absolute -top-12 z-10 self-center rounded-full p-4 disabled:invisible dark:bg-background dark:hover:bg-accent"
+      >
+        <ArrowDownIcon />
+      </TooltipIconButton>
+    </ThreadPrimitive.ScrollToBottom>
+  );
+};
+
+const ThreadWelcome: FC<{ mode: AssistantContextMode }> = ({ mode }) => {
+  const welcome = DARSI_WELCOME[mode];
+  const suggestions = DARSI_SUGGESTIONS[mode];
+
+  return (
+    <div className="aui-thread-welcome-root mx-auto my-auto flex w-full max-w-(--thread-max-width) grow flex-col items-center justify-center">
+      <div className="flex w-full flex-col items-center justify-center px-4">
+        <h1 className="fade-in slide-in-from-bottom-1 animate-in fill-mode-both text-3xl font-semibold text-foreground duration-200">
+          {welcome.title}
+        </h1>
+        <p className="fade-in slide-in-from-bottom-1 animate-in fill-mode-both mt-2 text-lg text-muted-foreground delay-75 duration-200">
+          {welcome.subtitle}
+        </p>
+      </div>
+
+      <div className="mt-10 grid w-full max-w-2xl grid-cols-1 gap-4 px-4 pb-4 md:grid-cols-2">
+        {suggestions.map((item, i) => (
+          <ThreadPrimitive.Suggestion
+            key={i}
+            prompt={item.title}
+            send
+            asChild
+          >
+            <button
+              className={cn(
+                "fade-in slide-in-from-bottom-2 animate-in fill-mode-both cursor-pointer rounded-xl border border-border bg-card p-4 text-left transition-colors duration-200",
+                "hover:border-emerald-200 hover:bg-emerald-50 dark:hover:border-emerald-800 dark:hover:bg-emerald-950/40",
+              )}
+              style={{ animationDelay: `${100 + i * 50}ms` }}
+            >
+              <span className="block text-sm font-medium text-foreground">
+                {item.title}
+              </span>
+              <span className="mt-1 block text-sm text-muted-foreground">
+                {item.description}
+              </span>
+            </button>
+          </ThreadPrimitive.Suggestion>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+const ThreadSuggestions: FC = () => {
+  return (
+    <div className="aui-thread-welcome-suggestions grid w-full @md:grid-cols-2 gap-2 pb-4">
+      <ThreadPrimitive.Suggestions
+        components={{
+          Suggestion: ThreadSuggestionItem,
+        }}
+      />
+    </div>
+  );
+};
+
+const ThreadSuggestionItem: FC = () => {
+  return (
+    <div className="aui-thread-welcome-suggestion-display fade-in slide-in-from-bottom-2 @md:nth-[n+3]:block nth-[n+3]:hidden animate-in fill-mode-both duration-200">
+      <SuggestionPrimitive.Trigger send asChild>
+        <Button
+          variant="ghost"
+          className="aui-thread-welcome-suggestion h-auto w-full @md:flex-col flex-wrap items-start justify-start gap-1 rounded-2xl border px-4 py-3 text-left text-sm transition-colors hover:bg-muted"
+        >
+          <span className="aui-thread-welcome-suggestion-text-1 font-medium">
+            <SuggestionPrimitive.Title />
+          </span>
+          <span className="aui-thread-welcome-suggestion-text-2 text-muted-foreground">
+            <SuggestionPrimitive.Description />
+          </span>
+        </Button>
+      </SuggestionPrimitive.Trigger>
+    </div>
+  );
+};
+
+const Composer: FC<{ mode: AssistantContextMode }> = ({ mode }) => {
+  const welcome = DARSI_WELCOME[mode];
+
+  return (
+    <ComposerPrimitive.Root className="aui-composer-root relative flex w-full flex-col">
+      <ComposerPrimitive.AttachmentDropzone className="aui-composer-attachment-dropzone flex w-full flex-col rounded-2xl border border-input bg-background px-1 pt-2 outline-none transition-shadow has-[textarea:focus-visible]:border-ring has-[textarea:focus-visible]:ring-2 has-[textarea:focus-visible]:ring-ring/20 data-[dragging=true]:border-ring data-[dragging=true]:border-dashed data-[dragging=true]:bg-accent/50">
+        <ComposerAttachments />
+        <ComposerPrimitive.Input
+          placeholder={welcome.placeholder}
+          className="aui-composer-input mb-1 max-h-32 min-h-14 w-full resize-none bg-transparent px-4 pt-2 pb-3 text-sm outline-none placeholder:text-muted-foreground focus-visible:ring-0"
+          rows={1}
+          autoFocus
+          aria-label="Message input"
+        />
+        <ComposerAction />
+      </ComposerPrimitive.AttachmentDropzone>
+    </ComposerPrimitive.Root>
+  );
+};
+
+const ComposerAction: FC = () => {
+  return (
+    <div className="aui-composer-action-wrapper relative mx-2 mb-2 flex items-center justify-between">
+      <ComposerAddAttachment />
+      <AuiIf condition={(s) => !s.thread.isRunning}>
+        <ComposerPrimitive.Send asChild>
+          <TooltipIconButton
+            tooltip="Kirim pesan"
+            side="bottom"
+            type="submit"
+            variant="default"
+            size="icon"
+            className="aui-composer-send size-8 rounded-full"
+            aria-label="Kirim pesan"
+          >
+            <ArrowUpIcon className="aui-composer-send-icon size-4" />
+          </TooltipIconButton>
+        </ComposerPrimitive.Send>
+      </AuiIf>
+      <AuiIf condition={(s) => s.thread.isRunning}>
+        <ComposerPrimitive.Cancel asChild>
+          <Button
+            type="button"
+            variant="default"
+            size="icon"
+            className="aui-composer-cancel size-8 rounded-full"
+            aria-label="Berhenti"
+          >
+            <SquareIcon className="aui-composer-cancel-icon size-3 fill-current" />
+          </Button>
+        </ComposerPrimitive.Cancel>
+      </AuiIf>
+    </div>
+  );
+};
+
+const MessageError: FC = () => {
+  return (
+    <MessagePrimitive.Error>
+      <ErrorPrimitive.Root className="aui-message-error-root mt-2 rounded-md border border-destructive bg-destructive/10 p-3 text-destructive text-sm dark:bg-destructive/5 dark:text-red-200">
+        <ErrorPrimitive.Message className="aui-message-error-message line-clamp-2" />
+      </ErrorPrimitive.Root>
+    </MessagePrimitive.Error>
+  );
+};
+
+function extractApprovalId(interrupt: ToolCallMessagePartProps["interrupt"]): string | null {
+  if (!interrupt || interrupt.type !== "human") {
+    return null;
+  }
+
+  const payload = interrupt.payload;
+  if (!payload || typeof payload !== "object") {
+    return null;
+  }
+
+  const id = (payload as { id?: unknown }).id;
+  return typeof id === "string" && id.trim().length > 0 ? id : null;
+}
+
+const ApprovalAwareToolFallback: FC<
+  ToolCallMessagePartProps & {
+    onToolApprovalResponse?: ThreadProps["onToolApprovalResponse"];
+  }
+> = ({ onToolApprovalResponse, status, interrupt, addResult, ...part }) => {
+  const approvalId = extractApprovalId(interrupt);
+  const [pendingAction, setPendingAction] = useState<"approve" | "deny" | null>(
+    null,
+  );
+
+  const requiresApproval =
+    status?.type === "requires-action" &&
+    status.reason === "interrupt" &&
+    approvalId !== null;
+
+  const submitApproval = async (approved: boolean) => {
+    if (!approvalId || pendingAction) {
+      return;
+    }
+
+    const action = approved ? "approve" : "deny";
+    const reason = approved
+      ? "Disetujui oleh pengguna melalui panel konfirmasi."
+      : "Ditolak oleh pengguna melalui panel konfirmasi.";
+
+    setPendingAction(action);
+    try {
+      if (onToolApprovalResponse) {
+        await onToolApprovalResponse({ id: approvalId, approved, reason });
+      } else {
+        addResult({ approvalId, approved, reason });
+      }
+    } finally {
+      setPendingAction(null);
+    }
+  };
+
+  if (!requiresApproval) {
+    return (
+      <ToolFallback
+        {...part}
+        status={status}
+        interrupt={interrupt}
+        addResult={addResult}
+        resume={part.resume}
+      />
+    );
+  }
+
+  return (
+    <ToolFallback.Root defaultOpen>
+      <ToolFallback.Trigger toolName={part.toolName} status={status} />
+      <ToolFallback.Content>
+        <ToolFallback.Args argsText={part.argsText} />
+        <div className="px-4 pt-1 text-sm text-muted-foreground">
+          Konfirmasi diperlukan sebelum proses dilanjutkan.
+        </div>
+        <div className="flex flex-wrap gap-2 px-4 pb-2">
+          <Button
+            size="sm"
+            onClick={() => {
+              void submitApproval(true);
+            }}
+            disabled={pendingAction !== null}
+          >
+            {pendingAction === "approve" ? "Memproses..." : "Setujui"}
+          </Button>
+          <Button
+            size="sm"
+            variant="outline"
+            onClick={() => {
+              void submitApproval(false);
+            }}
+            disabled={pendingAction !== null}
+          >
+            {pendingAction === "deny" ? "Memproses..." : "Tolak"}
+          </Button>
+        </div>
+      </ToolFallback.Content>
+    </ToolFallback.Root>
+  );
+};
+
+const AssistantMessage: FC<{
+  onToolApprovalResponse?: ThreadProps["onToolApprovalResponse"];
+}> = ({ onToolApprovalResponse }) => {
+  return (
+    <MessagePrimitive.Root
+      className="aui-assistant-message-root fade-in slide-in-from-bottom-1 relative mx-auto w-full max-w-(--thread-max-width) animate-in py-3 duration-150"
+      data-role="assistant"
+    >
+      <div className="aui-assistant-message-content wrap-break-word px-2 text-foreground leading-relaxed">
+        <MessagePrimitive.Parts
+          components={{
+            Text: MarkdownText,
+            tools: {
+              Fallback: (toolPartProps) => (
+                <ApprovalAwareToolFallback
+                  {...toolPartProps}
+                  onToolApprovalResponse={onToolApprovalResponse}
+                />
+              ),
+            },
+          }}
+        />
+        <MessageError />
+      </div>
+
+      <div className="aui-assistant-message-footer mt-1 ml-2 flex">
+        <BranchPicker />
+        <AssistantActionBar />
+      </div>
+    </MessagePrimitive.Root>
+  );
+};
+
+const AssistantActionBar: FC = () => {
+  return (
+    <ActionBarPrimitive.Root
+      hideWhenRunning
+      autohide="not-last"
+      autohideFloat="single-branch"
+      className="aui-assistant-action-bar-root col-start-3 row-start-2 -ml-1 flex gap-1 text-muted-foreground data-floating:absolute data-floating:rounded-md data-floating:border data-floating:bg-background data-floating:p-1 data-floating:shadow-sm"
+    >
+      <ActionBarPrimitive.Copy asChild>
+        <TooltipIconButton tooltip="Salin">
+          <AuiIf condition={(s) => s.message.isCopied}>
+            <CheckIcon />
+          </AuiIf>
+          <AuiIf condition={(s) => !s.message.isCopied}>
+            <CopyIcon />
+          </AuiIf>
+        </TooltipIconButton>
+      </ActionBarPrimitive.Copy>
+      <ActionBarPrimitive.Reload asChild>
+        <TooltipIconButton tooltip="Refresh">
+          <RefreshCwIcon />
+        </TooltipIconButton>
+      </ActionBarPrimitive.Reload>
+      <ActionBarMorePrimitive.Root>
+        <ActionBarMorePrimitive.Trigger asChild>
+          <TooltipIconButton
+            tooltip="More"
+            className="data-[state=open]:bg-accent"
+          >
+            <MoreHorizontalIcon />
+          </TooltipIconButton>
+        </ActionBarMorePrimitive.Trigger>
+        <ActionBarMorePrimitive.Content
+          side="bottom"
+          align="start"
+          className="aui-action-bar-more-content z-50 min-w-32 overflow-hidden rounded-md border bg-popover p-1 text-popover-foreground shadow-md"
+        >
+          <ActionBarPrimitive.ExportMarkdown asChild>
+            <ActionBarMorePrimitive.Item className="aui-action-bar-more-item flex cursor-pointer select-none items-center gap-2 rounded-sm px-2 py-1.5 text-sm outline-none hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+              <DownloadIcon className="size-4" />
+              Export as Markdown
+            </ActionBarMorePrimitive.Item>
+          </ActionBarPrimitive.ExportMarkdown>
+        </ActionBarMorePrimitive.Content>
+      </ActionBarMorePrimitive.Root>
+    </ActionBarPrimitive.Root>
+  );
+};
+
+const UserMessage: FC = () => {
+  return (
+    <MessagePrimitive.Root
+      className="aui-user-message-root fade-in slide-in-from-bottom-1 mx-auto grid w-full max-w-(--thread-max-width) animate-in auto-rows-auto grid-cols-[minmax(72px,1fr)_auto] content-start gap-y-2 px-2 py-3 duration-150 [&:where(>*)]:col-start-2"
+      data-role="user"
+    >
+      <UserMessageAttachments />
+
+      <div className="aui-user-message-content-wrapper relative col-start-2 min-w-0">
+        <div className="aui-user-message-content wrap-break-word rounded-2xl bg-muted px-4 py-2.5 text-foreground">
+          <MessagePrimitive.Parts />
+        </div>
+        <div className="aui-user-action-bar-wrapper absolute top-1/2 left-0 -translate-x-full -translate-y-1/2 pr-2">
+          <UserActionBar />
+        </div>
+      </div>
+
+      <BranchPicker className="aui-user-branch-picker col-span-full col-start-1 row-start-3 -mr-1 justify-end" />
+    </MessagePrimitive.Root>
+  );
+};
+
+const UserActionBar: FC = () => {
+  return (
+    <ActionBarPrimitive.Root
+      hideWhenRunning
+      autohide="not-last"
+      className="aui-user-action-bar-root flex flex-col items-end"
+    >
+      <ActionBarPrimitive.Edit asChild>
+        <TooltipIconButton tooltip="Edit" className="aui-user-action-edit p-4">
+          <PencilIcon />
+        </TooltipIconButton>
+      </ActionBarPrimitive.Edit>
+    </ActionBarPrimitive.Root>
+  );
+};
+
+const EditComposer: FC = () => {
+  return (
+    <MessagePrimitive.Root className="aui-edit-composer-wrapper mx-auto flex w-full max-w-(--thread-max-width) flex-col px-2 py-3">
+      <ComposerPrimitive.Root className="aui-edit-composer-root ml-auto flex w-full max-w-[85%] flex-col rounded-2xl bg-muted">
+        <ComposerPrimitive.Input
+          className="aui-edit-composer-input min-h-14 w-full resize-none bg-transparent p-4 text-foreground text-sm outline-none"
+          autoFocus
+        />
+        <div className="aui-edit-composer-footer mx-3 mb-3 flex items-center gap-2 self-end">
+          <ComposerPrimitive.Cancel asChild>
+            <Button variant="ghost" size="sm">
+              Cancel
+            </Button>
+          </ComposerPrimitive.Cancel>
+          <ComposerPrimitive.Send asChild>
+            <Button size="sm">Update</Button>
+          </ComposerPrimitive.Send>
+        </div>
+      </ComposerPrimitive.Root>
+    </MessagePrimitive.Root>
+  );
+};
+
+const BranchPicker: FC<BranchPickerPrimitive.Root.Props> = ({
+  className,
+  ...rest
+}) => {
+  return (
+    <BranchPickerPrimitive.Root
+      hideWhenSingleBranch
+      className={cn(
+        "aui-branch-picker-root mr-2 -ml-2 inline-flex items-center text-muted-foreground text-xs",
+        className,
+      )}
+      {...rest}
+    >
+      <BranchPickerPrimitive.Previous asChild>
+        <TooltipIconButton tooltip="Previous">
+          <ChevronLeftIcon />
+        </TooltipIconButton>
+      </BranchPickerPrimitive.Previous>
+      <span className="aui-branch-picker-state font-medium">
+        <BranchPickerPrimitive.Number /> / <BranchPickerPrimitive.Count />
+      </span>
+      <BranchPickerPrimitive.Next asChild>
+        <TooltipIconButton tooltip="Next">
+          <ChevronRightIcon />
+        </TooltipIconButton>
+      </BranchPickerPrimitive.Next>
+    </BranchPickerPrimitive.Root>
+  );
+};

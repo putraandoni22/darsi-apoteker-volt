@@ -1,0 +1,67 @@
+{
+  "users": [
+    {
+      "id": "332388ec-72b6-4f99-9c9b-f0d90d1ad47a",
+      "name": "admin",
+      "email": "admin@rumahsakit.id",
+      "passwordHash": "d69f6777fb90f33a1b4eae38068f616b:3789d6117d685250fa4e0ef0c5ec0f9b47b3cf1b6d52da146f87eb313818981db867dcd9f1d566ccf61971b60940fd0705e87905babe68a4817d8648183cb64f",
+      "role": "admin",
+      "createdAt": "2026-04-10T07:16:49.710Z",
+      "nomorRM": null
+    },
+    {
+      "id": "49500a3a-f358-40c5-8cd0-4063674894be",
+      "name": "Apoteker RSI Surabaya",
+      "email": "apoteker@rumahsakit.id",
+      "passwordHash": "d2f282fbb9116676e97ffc53cb1a2258:c3599501f524a82179c97e33b0ebe806f20d14aab17b6dc295ebdaa5b4ac5ddf446ddbe001f7a107cc232d87906abecbced5997d7d580f47d658d6ae3515b00b",
+      "role": "apoteker",
+      "createdAt": "2026-04-10T07:17:32.369Z",
+      "nomorRM": null
+    },
+    {
+      "id": "018023cf-762c-40e9-9e7c-de1cf9464416",
+      "name": "Pasien 1",
+      "email": "pasien1@rumahsakit.id",
+      "passwordHash": "b3ba925ec98fccabcca6582d2ac93126:a83e1df06dfc012eebd73f4e0e3855324457f642dfb9a90299d2280ab6405b21f6cc522fdaf32294eaab98a7dad5417fbf2ff61eb6a139122bdd09b9e628c40e",
+      "role": "pasien",
+      "createdAt": "2026-04-10T07:18:56.034Z",
+      "nomorRM": "RM000001"
+    },
+    {
+      "id": "65a03223-8f04-493d-82b0-ce84a1ebd1b5",
+      "name": "pasien 2",
+      "email": "pasien2@rumahsakit.id",
+      "passwordHash": "1ee4a28ca745fd134666a3134a9d1ade:58aa70a17f5389343af1d781dd0e52fb2ee900be8999c17b9679cbb957b140775fc2b730dded60791e278249012dc9fd460f2dc433ef386521a7acd0b21b1a66",
+      "role": "pasien",
+      "createdAt": "2026-04-10T07:19:41.449Z",
+      "nomorRM": "RM000002"
+    },
+    {
+      "id": "5f8f1145-3c34-4288-877c-676747cf54b0",
+      "name": "pasien 3",
+      "email": "pasien3@rumahsakit.id",
+      "passwordHash": "f1bb613ebbe661c6af9903c947b3e90d:57f310099b2a73a763812ff272de98a92e3aed09ea0040dc6591e832af149b90653c5fe6c05d7a1e81731115a630cf1c76891aeb0ca4f7dee7605cc7a51a51c4",
+      "role": "pasien",
+      "createdAt": "2026-04-10T07:20:20.984Z",
+      "nomorRM": "RM000003"
+    },
+    {
+      "id": "86036622-6dc1-4c01-aa55-254ee2899cdd",
+      "name": "pasien 4",
+      "email": "pasien4@rumahsakit.id",
+      "passwordHash": "abef508a849d1d40e6e350d327dd23cd:ec384456127c2750f243b3801f24e9303f21c5406b4bb1d0505d1b331bc5a970ed504558cbcdcacdec2c1ea01d0d77c743d51c59f2be5897685a0dfd3ddb9c30",
+      "role": "pasien",
+      "createdAt": "2026-04-10T07:21:57.949Z",
+      "nomorRM": "RM000004"
+    },
+    {
+      "id": "9bf33be1-10d2-4dfe-879a-35113f4c531f",
+      "name": "pasien 5",
+      "email": "pasien5@rumahsakit.id",
+      "passwordHash": "ce42552a1d23458de3c248ba01483666:39058f22488d91500ff2c9e3fd6c21d27b8ca34ee80c8805b52b5d8fe9fe23c99a627ff980def887e95a495e190797606ed89a2bb2aa2d688e47240bfe550b23",
+      "role": "pasien",
+      "createdAt": "2026-04-10T07:22:38.460Z",
+      "nomorRM": "RM000005"
+    }
+  ]
+}

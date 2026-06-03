@@ -1,0 +1,26 @@
+
+> darsi-apoteker-volt@1.0.0 dev
+> tsx watch --env-file=.env ./src
+
+[2026-03-10 04:31:53.515 +0000] [32mINFO[39m (darsi-apoteker): [36mDARSI Apoteker running at http://localhost:1337/copilotkit[39m
+
+
+[36m══════════════════════════════════════════════════[0m
+[1m[33m  VOLTAGENT SERVER STARTED SUCCESSFULLY[0m
+[36m══════════════════════════════════════════════════[0m
+[32m  ✓ [1mHTTP Server:  [0m[37mhttp://localhost:4300[0m
+[34m  ↪ [1mShare it:    [0m[37mpnpm volt tunnel 4300[0m [2m(secure HTTPS tunnel for teammates)[0m
+[34m  ↪ [1mDeploy it:   [0m[37mhttps://console.voltagent.dev/deployments[0m
+[32m  ✓ [1mSwagger UI:   [0m[37mhttp://localhost:4300/ui[0m
+
+[32m  ✓ [1mRegistered Endpoints: [0m[2m3 total[0m
+
+[1m[37m    Custom Endpoints[0m[2m (3)[0m
+[2m      POST   [0m[37m/copilotkit[0m
+[2m      POST   [0m[37m/copilotkit/*[0m
+
+[1m[33m  [1mTest your agents with VoltOps Console: [0m[37mhttps://console.voltagent.dev[0m
+[36m══════════════════════════════════════════════════[0m
+
+  [33m⚡[0m [1mIntroducing VoltOps Deployments[0m [2m→[0m https://console.voltagent.dev/deployments
+  [33m⚡[0m [1mVoltAgent RAG Is Live[0m [2m→[0m https://voltagent.dev/docs/rag/voltagent/

@@ -1,0 +1,36 @@
+{
+  "documents": [
+    {
+      "id": "kbdoc-kronis-rsi-202604",
+      "name": "Katalog Obat Kronis RSI",
+      "type": "CSV",
+      "version": "v2026.04",
+      "updatedAt": "2026-04-11T10:48:21.476Z",
+      "status": "indexed"
+    },
+    {
+      "id": "kbdoc-bpjs-202604",
+      "name": "Pedoman BPJS Terbaru",
+      "type": "PDF",
+      "version": "v2026.04",
+      "updatedAt": "2026-04-11T10:48:21.476Z",
+      "status": "indexed"
+    },
+    {
+      "id": "kbdoc-sop-dispensing-202602",
+      "name": "SOP Dispensing RSI",
+      "type": "PDF",
+      "version": "v2026.02",
+      "updatedAt": "2026-04-11T10:48:21.476Z",
+      "status": "indexed"
+    },
+    {
+      "id": "kbdoc-icd-internal-202603",
+      "name": "Referensi ICD Internal",
+      "type": "CSV",
+      "version": "v2026.03",
+      "updatedAt": "2026-04-11T10:48:21.476Z",
+      "status": "indexed"
+    }
+  ]
+}
