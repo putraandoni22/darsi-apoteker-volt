@@ -1,24 +1,35 @@
 # Dependency directories
 node_modules/
+darsi_ph_chatbot/node_modules/
+darsi_ph_dashboard/node_modules/
 
 # Environment variables (SANGAT PENTING!)
 .env
 .env.*
 !.env.example
+darsi_ph_chatbot/.env
+darsi_ph_chatbot/.env.*
+!darsi_ph_chatbot/.env.example
+darsi_ph_dashboard/.env.local
+darsi_ph_dashboard/.env.*
 
-# Database lokal & data demo
-ui/data/*.db
-ui/data/*.db-*
-
-# Next.js build
-ui/.next/
-ui/node_modules/
+# Database lokal & data demo (dashboard)
+darsi_ph_dashboard/data/*.db
+darsi_ph_dashboard/data/*.db-*
 
 # Build output
 dist/
+darsi_ph_chatbot/dist/
+darsi_ph_dashboard/.next/
+darsi_ph_dashboard/out/
 
-# VoltAgent local memory database (Supaya memori percakapan lokal tidak tertumpuk di server)
+# VoltAgent / vector DB lokal (chatbot)
 .voltagent/
+darsi_ph_chatbot/.voltagent/
 
-# Mac OS folder settings (opsional tapi bagus untuk ada)
+# Logs
+*.log
+backend.log
+
+# Mac OS
 .DS_Store

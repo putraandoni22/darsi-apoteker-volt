@@ -43,5 +43,5 @@
     "skipLibCheck": true,
   },
   "include": ["src/**/*.ts", "scripts/**/*.ts"],
-  "exclude": ["dist", "node_modules", "ui", "direct", "indirect"]
+  "exclude": ["dist", "node_modules", "darsi_ph_dashboard", "direct", "indirect"]
 }

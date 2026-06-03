@@ -1,5 +1,5 @@
 -- Jalankan sebagai superuser postgres:
--- sudo -u postgres psql -d postgres -f ui/scripts/setup-auth-postgres.sql
+-- sudo -u postgres psql -d postgres -f darsi_ph_dashboard/scripts/setup-auth-postgres.sql
 
 DO $$
 BEGIN

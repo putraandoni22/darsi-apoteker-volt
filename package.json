@@ -1,51 +1,16 @@
 {
   "name": "darsi-apoteker-volt",
   "version": "1.0.0",
-  "description": "AI Agent Apoteker RSI",
-  "main": "index.js",
+  "private": true,
+  "description": "Monorepo DARSI Apoteker RSI — chatbot AI + dashboard apoteker",
   "scripts": {
-    "build": "tsdown",
-    "dev": "tsx watch --env-file=.env ./src",
-    "start": "node --env-file=.env dist/index.mjs",
-    "volt": "volt",
-    "init-embeddings": "tsx --env-file=.env ./src/embedding/initializeDb.ts",
-    "init-efornas": "tsx --env-file=.env ./src/embedding/initializeEfornasDb.ts",
-    "scrape-efornas": "python3 scripts/scrape_efornas.py",
-    "sync:daily": "bash ./scripts/sync_daily.sh",
-    "eval:apoteker": "tsx --env-file=.env ./scripts/evaluateApoteker.ts",
-    "eval:live": "tsx --env-file=.env ./scripts/live_runner.ts",
-    "test:chat-structure": "tsx --env-file=.env ./scripts/testStructuredResponse.ts",
-    "seed:master-obat": "node ./ui/scripts/seed-master-obat.mjs",
-    "seed:master-obat:dry": "node ./ui/scripts/seed-master-obat.mjs --dry-run"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "@types/node": "^24.12.0",
-    "@types/pg": "^8.20.0",
-    "@voltagent/cli": "^0.1.16",
-    "tsdown": "^0.17.0-beta.5",
-    "tsx": "^4.21.0",
-    "typescript": "^5.9.3"
-  },
-  "dependencies": {
-    "@ai-sdk/openai": "^2.0.76",
-    "@ai-sdk/openai-compatible": "^1.0.28",
-    "@copilotkit/react-core": "^1.53.0",
-    "@copilotkit/react-ui": "^1.53.0",
-    "@copilotkit/runtime": "^1.53.0",
-    "@libsql/client": "^0.17.2",
-    "@lancedb/lancedb": "^0.26.2",
-    "@voltagent/ag-ui": "^1.0.5",
-    "@voltagent/core": "^1.2.13",
-    "@voltagent/libsql": "^1.0.13",
-    "@voltagent/logger": "^1.0.4",
-    "@voltagent/server-hono": "^1.2.5",
-    "ai": "^5.0.106",
-    "csv-parser": "^3.2.0",
-    "pg": "^8.20.0",
-    "zod": "^3.25.76"
-  },
-  "type": "module"
+    "dev": "bash ./run-darsi.sh",
+    "dev:chatbot": "npm run dev --prefix darsi_ph_chatbot",
+    "dev:dashboard": "npm run dev --prefix darsi_ph_dashboard",
+    "install:all": "npm install --prefix darsi_ph_chatbot && npm install --prefix darsi_ph_dashboard",
+    "build:chatbot": "npm run build --prefix darsi_ph_chatbot",
+    "build:dashboard": "npm run build --prefix darsi_ph_dashboard",
+    "seed:master-obat": "node ./darsi_ph_dashboard/scripts/seed-master-obat.mjs",
+    "seed:master-obat:dry": "node ./darsi_ph_dashboard/scripts/seed-master-obat.mjs --dry-run"
+  }
 }

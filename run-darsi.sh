@@ -3,6 +3,8 @@
 set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+CHATBOT_DIR="$SCRIPT_DIR/darsi_ph_chatbot"
+DASHBOARD_DIR="$SCRIPT_DIR/darsi_ph_dashboard"
 SERVER_PORT="${SERVER_PORT:-${VOLT_API_PORT:-${PORT:-1337}}}"
 UI_PORT="${UI_PORT:-${NEXT_PORT:-3000}}"
 BACKEND_URL="http://localhost:${SERVER_PORT}"
@@ -50,7 +52,7 @@ is_darsi_process() {
 
   cmdline="$(get_pid_command "$pid")"
   cwd="$(get_pid_cwd "$pid")"
-  [[ "$cmdline" == *"$SCRIPT_DIR"* || "$cmdline" == *"darsi-apoteker-volt"* || "$cwd" == "$SCRIPT_DIR"* ]]
+  [[ "$cmdline" == *"$SCRIPT_DIR"* || "$cmdline" == *"darsi-apoteker-volt"* || "$cmdline" == *"darsi_ph_chatbot"* || "$cmdline" == *"darsi_ph_dashboard"* || "$cwd" == "$SCRIPT_DIR"* ]]
 }
 
 stop_pid_gracefully() {
@@ -164,9 +166,9 @@ if ! resolve_port_conflict "$UI_PORT" "ui"; then
   exit 1
 fi
 
-echo "[1/2] Starting backend..."
+echo "[1/2] Starting chatbot (VoltAgent)..."
 (
-  cd "$SCRIPT_DIR"
+  cd "$CHATBOT_DIR"
   exec env PORT="$SERVER_PORT" VOLT_API_PORT="$SERVER_PORT" OLLAMA_MODEL_ID="MedAIBase/MedGemma1.5:4b" OLLAMA_BASE_URL="http://localhost:11434" npm run dev >"$BACKEND_LOG" 2>&1
 ) &
 SERVER_PID=$!
@@ -179,9 +181,9 @@ if ! check_port "$SERVER_PORT"; then
   exit 1
 fi
 
-echo "[2/2] Starting UI..."
+echo "[2/2] Starting dashboard (Next.js)..."
 (
-  cd "$SCRIPT_DIR/ui"
+  cd "$DASHBOARD_DIR"
   exec env NEXT_PUBLIC_VOLTAGENT_URL="$BACKEND_URL" npm run dev -- --port "$UI_PORT" >"$UI_LOG" 2>&1
 ) &
 UI_PID=$!
